@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+
+	<meta charset="utf-8">
+	<link rel="shortcut icon" th:href="@{/img/LogoRefugioDelSisga.png}" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Configuración de Clientes</title>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style-ConfiguracionDeClientes.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style-EstilosGenericos.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style-BuscarInput.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style-Modal.css}">
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+</head>
+
+<body>
+	<div class="titulo">
+		CONFIGURACIÓN DE CLIENTES
+	</div>
+	<div class="menu" id="menu">
+		<div class="ayuda">
+			<a th:href="@{/}" title="Ayuda">
+				<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
+					class="bi bi-question-square" viewBox="0 0 16 16">
+					<path
+						d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+					<path
+						d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
+				</svg>
+			</a>
+
+			<a id="mostrarOcultarBoton" onclick="mostrarOcultar()" title="Menú">
+				<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
+					class="bi bi-chevron-double-left" viewBox="0 0 16 16">
+					<path fill-rule="evenodd"
+						d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+					<path fill-rule="evenodd"
+						d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+				</svg>
+			</a>
+		</div>
+		<div class="navegacion">
+			<ul class="no-afectar">
+				<li>
+					<a th:href="@{/AdministracionDeCotizaciones}" class="menu-link">Menú Anterior
+						<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor"
+							class="bi bi-house-fill" viewBox="0 0 16 16">
+							<path
+								d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z" />
+							<path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z" />
+						</svg>
+					</a>
+				</li>
+			</ul>
+			<ul class="no-afectar">
+				<li>
+					<a th:href="@{/RegistroDeClientes}" class="menu-link">Nuevo Cliente
+						<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor"
+							class="bi bi-file-earmark-plus-fill" viewBox="0 0 16 16">
+							<path
+								d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM8.5 7v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 1 0z" />
+						</svg>
+					</a>
+				</li>
+			</ul>
+			<ul class="no-afectar">
+				<li>
+					<a th:href="@{/ClientesRegistrados}" class="menu-link">Clientes Registrados
+						<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor"
+							class="bi bi-box-seam-fill" viewBox="0 0 16 16">
+							<path fill-rule="evenodd"
+								d="M15.528 2.973a.75.75 0 0 1 .472.696v8.662a.75.75 0 0 1-.472.696l-7.25 2.9a.75.75 0 0 1-.557 0l-7.25-2.9A.75.75 0 0 1 0 12.331V3.669a.75.75 0 0 1 .471-.696L7.443.184l.01-.003.268-.108a.75.75 0 0 1 .558 0l.269.108.01.003 6.97 2.789ZM10.404 2 4.25 4.461 1.846 3.5 1 3.839v.4l6.5 2.6v7.922l.5.2.5-.2V6.84l6.5-2.6v-.4l-.846-.339L8 5.961 5.596 5l6.154-2.461L10.404 2Z" />
+						</svg>
+					</a>
+				</li>
+			</ul>
+
+		</div>
+	</div>
+	<main>
+		<div class="migaPan">
+			<a th:href="@{/AdministracionDeServicios}">Administración de Servicios</a>
+			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+				class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
+				<path fill-rule="evenodd"
+					d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z" />
+			</svg>
+
+			<a th:href="@{/AdministracionDeCotizaciones}">Administración de Cotizaciones</a>
+
+			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+				class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
+				<path fill-rule="evenodd"
+					d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z" />
+			</svg>
+
+			<a th:href="@{/ConfiguracionDeClientes}">Configurar Clientes</a>
+
+			<input id="buscarInput" onkeyup="buscarCliente()" placeholder="Buscar por ID de Cliente...">
+
+		</div>
+
+		<div class="section-container">
+			<div class="wrapper">
+				<div class="col-md-6 col-md-offset-3">
+					<div th:if="${param.save}" onchange="validateExito(this)">
+						<div id="exito" class="alert-exito">
+							<p>
+								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+									class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+									<path
+										d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+								</svg>
+								Cliente Actualizado con Éxito!.
+								<br><br>
+								Ya puede gestionar cotizaciones con
+								<br>
+								este cliente.
+							</p>
+						</div>
+					</div>
+
+					<div th:if="${param.delete}" onchange="validateExito(this)">
+						<div id="exito" class="alert-delete">
+							<p>
+								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+									class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+									<path
+										d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+								</svg>
+								Producto Eliminado Exitosamente!.
+							</p>
+						</div>
+					</div>
+					<div id="modal" class="modal">
+						<div class="modal-content">
+							<span class="close" id="btn-close">&times;</span>
+							<p>¿Desea guardar los cambios editados?</p>
+							<button id="btn-aceptar">Aceptar</button>
+							<button id="btn-cancelar">Cancelar</button>
+						</div>
+					</div>
+					<div id="modal-eliminar" class="modal">
+						<div class="modal-content">
+							<span class="close" id="btn-closeF">&times;</span>
+							<p>¿Está seguro de eliminar este producto?</p>
+							<button id="btn-aceptarF" class="btn-aceptar">Aceptar</button>
+							<button id="btn-cancelarF" class="btn-cancelar">Cancelar</button>
+						</div>
+					</div>
+				</div>
+				<div class="arrow-container">
+					Registros actuales: &nbsp;<span th:text="${maxIndice}"></span>
+					<button th:if="${Clientes.size() &gt; 8}" class="arrow-button previous-button"
+						onclick="showPrevious()" aria-placeholder="... Anterior">... Anterior</button>
+					<button th:if="${Clientes.size() &gt; 8}" class="arrow-button next-button"
+						onclick="showNext()">Siguiente ...</button>
+				</div>
+				<div id="exitoAlert" style="display: none;">Mensaje de éxito</div>
+				<table class="table custom-table" cellspacing="0">
+					<thead class="table-dark">
+						<tr>
+							<th>Editar</th>
+							<th>Eliminar</th>
+							<th>N°</th>
+							<th>Nombre</th>
+							<th>Tipo ID</th>
+							<th>Número ID</th>
+							<th>Correo Electronico</th>
+							<th>Número de Contacto</th>
+							<th>Dirección</th>
+							<th>Info Adicional</th>
+						</tr>
+					</thead>
+					<tbody id="mainTableBody">
+						<tr th:each="Cliente, iterStat : ${Clientes}" th:if="${iterStat.index &lt; 1000000000}">
+							<td>
+								<button class="btn-editar" onclick="editarFila(this)">Editar&nbsp;
+									<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor"
+										class="bi bi-pencil-fill" viewBox="0 0 16 16">
+										<path
+											d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
+									</svg>
+								</button>
+								<button class="btn-guardar" onclick="guardarFila(this)" style="display: none;">Guardar
+									<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
+										class="bi bi-floppy" viewBox="0 0 16 16">
+										<path d="M11 2H9v3h2V2Z" />
+										<path
+											d="M1.5 0h11.586a1.5 1.5 0 0 1 1.06.44l1.415 1.414A1.5 1.5 0 0 1 16 2.914V14.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 14.5v-13A1.5 1.5 0 0 1 1.5 0ZM1 1.5v13a.5.5 0 0 0 .5.5H2v-4.5A1.5 1.5 0 0 1 3.5 9h9a1.5 1.5 0 0 1 1.5 1.5V15h.5a.5.5 0 0 0 .5-.5V2.914a.5.5 0 0 0-.146-.353l-1.415-1.415A.5.5 0 0 0 13.086 1H13v4.5A1.5 1.5 0 0 1 11.5 7h-7A1.5 1.5 0 0 1 3 5.5V1H1.5a.5.5 0 0 0-.5.5Zm3 4a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5V1H4v4.5ZM3 15h10v-4.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5V15Z" />
+									</svg>
+								</button>
+							</td>
+							<td>
+								<form th:action="@{/eliminarCliente}" method="post"
+									onsubmit="return mostrarModalEliminar()">
+									<input type="hidden" name="id" th:value="${Cliente.id}" />
+
+									<button type="submit" class="btn-eliminar">Eliminar
+										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+											fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+											<path
+												d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z" />
+											<path
+												d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z" />
+										</svg>
+									</button>
+								</form>
+							</td>
+							<td th:text="${iterStat.count}">Índice</td>
+							<td>
+								<input type="text" class="editable-cell nombreCliente formatted-input" value="" readonly
+									th:value="${Cliente.nombreCliente}" />
+							</td>
+							<td>
+								<input type="text" class="editable-cell tipoIDCliente formatted-input" value="" readonly
+									th:value="${Cliente.tipoIDCliente}" />
+								<select class="editable-cell tipoIDClienteSelect formatted-input" style="display: none">
+									<!-- Opciones del select -->
+									<option value="CEDULA">CEDULA</option>
+									<option value="NIT">NIT</option>
+								</select>
+							</td>
+
+
+
+							<td>
+								<input type="text" class="editable-cell numeroIDCliente formatted-input" value=""
+									readonly th:value="${Cliente.numeroIDCliente}" />
+							</td>
+							<td>
+								<input type="text" class="editable-cell correoElectronicoCliente formatted-input"
+									value="" readonly th:value="${Cliente.correoElectronicoCliente}" />
+							</td>
+							<td>
+								<input type="text" class="editable-cell numeroDeContactoCliente formatted-input"
+									value="" readonly th:value="${Cliente.numeroDeContactoCliente}" />
+							</td>
+
+							<td>
+								<input type="text" class="editable-cell direccionCliente formatted-input" value=""
+									readonly th:value="${Cliente.direccionCliente}" />
+							</td>
+							<td>
+								<input type="text" class="editable-cell adicionalCliente formatted-input" value=""
+									readonly th:value="${Cliente.adicionalCliente}" />
+							</td>
+							<input type="hidden" class="id" th:value="${Cliente.id}" />
+							<input type="hidden" class="nombreCliente" value="${Cliente.nombreCliente}" />
+							<input type="hidden" class="tipoIDCliente" value="${Cliente.tipoIDCliente}" />
+							<input type="hidden" class="numeroIDCliente" value="${Cliente.numeroIDCliente}" />
+							<input type="hidden" class="correoElectronicoCliente"
+								value="${Cliente.correoElectronicoCliente}" />
+							<input type="hidden" class="numeroDeContactoCliente"
+								value="${Cliente.numeroDeContactoCliente}" />
+							<input type="hidden" class="direccionCliente" value="${Cliente.direccionCliente}" />
+							<input type="hidden" class="adicionalCliente" value="${Cliente.adicionalCliente}" />
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</main>
+	</script>
+	<script th:inline="javascript"></script>
+	<script th:src="@{/js/js-JsGenerico.js}"></script>
+	<script th:src="@{/js/js-JsConfiguracionDeClientes.js}"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+<footer>
+	© SIRPYM V1.0.1. 2023
+</footer>
+
+</html>

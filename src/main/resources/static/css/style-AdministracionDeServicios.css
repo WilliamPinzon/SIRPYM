@@ -1,0 +1,58 @@
+.section-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 92%;
+}
+
+.opcionUno,
+.opcionDos,
+.opcionTres{
+    height: 55%;
+    width: 20%;
+    margin: 2.5%;
+    text-decoration: none;
+    font-size: 26px;
+    font-family: 'Sitka';
+    color: rgb(255, 255, 255);
+    text-align: center;
+    align-items: center;
+    padding-top: 4%;
+    border-radius: 20px;
+    box-shadow: 0px 10px 2px 5px rgb(183, 183, 255);
+    filter: shadow(color=#999999, direction=100, strength=5);
+    position: relative;
+    display: inline-block;
+    transition: 2s, opacity 5s;
+    background-color: rgb(0, 128, 192);
+}
+
+.opcionUno::before,
+.opcionDos::before,
+.opcionTres::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center center;
+    z-index: -1;
+}
+
+.opcionUno:hover,
+.opcionDos:hover,
+.opcionTres:hover {
+	background-image: url("../img/FondoMenu.png");
+    background-size: cover;
+    background-position: center center;
+    transition: 0.7s;
+    font-size: 28px;
+}
+
+.opcionUno:hover::before,
+.opcionDos:hover::before,
+.opcionTres:hover::before {
+    opacity: 1;
+}

@@ -1,0 +1,292 @@
+.alert-exito {
+	position: fixed;
+	top: 15%;
+	left: 90%;
+	transform: translate(-50%, -50%);
+	background-color: rgb(128, 255, 128);
+	border-Radius: 20px;
+	box-Shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.25);
+	z-index: 9999;
+	font-weight: bold;
+	width: 350px;
+	height: 150px;
+	text-align: left;
+	padding-left: 20px;
+	padding-top: 15px;
+	text-shadow: none;
+	animation: fadeOut 10s forwards;
+}
+
+.alert-nombre {
+	position: fixed;
+	top: 18%;
+	left: 90%;
+	transform: translate(-50%, -50%);
+	background-color: #FF5A5A;
+	border-Radius: 20px;
+	box-Shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.25);
+	z-index: 9999;
+	font-weight: bold;
+	width: 350px;
+	height: 200px;
+	text-align: left;
+	padding-left: 20px;
+	padding-top: 15px;
+	text-shadow: none;
+	animation: fadeOut 20s forwards;
+}
+
+.alert-precio {
+	position: fixed;
+	top: 18%;
+	left: 90%;
+	transform: translate(-50%, -50%);
+	background-color: #FF5A5A;
+	border-Radius: 20px;
+	box-Shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.25);
+	z-index: 9999;
+	font-weight: bold;
+	width: 350px;
+	height: 200px;
+	text-align: left;
+	padding-left: 20px;
+	padding-top: 15px;
+	text-shadow: none;
+	animation: fadeOut 20s forwards;
+}
+
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+		display: none;
+	}
+}
+
+.section-container {
+	background: rgb(48,58,105);
+	background: linear-gradient(360deg, rgba(48,58,105,1) 0%, rgba(51,82,160,1) 100%);
+	width: 80%;
+	height: 80%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 7%;
+	margin-left: 10%;
+}
+
+.botones {
+	text-align: center;
+	font-family: 'Montserrat', sans-serif, serif;
+}
+
+.guardar {
+	padding-top: 2px;
+	border: none;
+	border-radius: 5px;
+	font-size: 23px;
+	background: rgb(0, 128, 0);
+	color: rgb(255, 255, 255);
+	text-decoration: solid;
+	width: 170px;
+	height: 75px;
+	margin-right: 10px;
+	transition: 2s;
+}
+
+.guardar:hover {
+	transition: 1s;
+	background: rgb(0, 255, 0);
+	text-decoration: solid;
+}
+
+.guardar:focus {
+	outline: auto;
+	text-decoration: solid;
+}
+
+.eliminar {
+	padding-top: 2px;
+	border: none;
+	border-radius: 5px;
+	font-size: 23px;
+	background: rgb(24, 45, 64);
+	color: white;
+	text-decoration: solid;
+	width: 170px;
+	height: 75px;
+	transition: 2s;
+}
+
+.eliminar:hover {
+	transition: 1s;
+	background: rgb(54, 101, 143);
+	text-decoration: solid;
+}
+
+.eliminar:focus {
+	outline: auto;
+	text-decoration: solid;
+}
+
+.col-md-offset-3 {
+	height: 100%;
+	width: 100%;
+}
+
+.two-column-form {
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: 6em;
+	width: 100%;
+}
+
+.two-column-form .field {
+	flex-basis: 40%;
+	margin-top: 3%;
+	box-sizing: border-box;
+}
+
+.field {
+	font-family: 'Sitka';
+	position: relative;
+	color: rgb(0, 0, 0);
+	overflow: hidden;
+	padding-left: 10px;
+	font-size: 20px;
+}
+
+.field input {
+	font-family: 'Sitka';
+	position: relative;
+	height: 40px;
+	color: rgb(128, 128, 128);
+	outline: 0;
+	border: none;
+	box-sizing: border-box;
+	font-size: 15 px;
+	padding-left: 4%;
+	padding-top: 4%;
+}
+
+.field .label-wrapper {
+	position: absolute;
+	height: 40px;
+	width: 70%;
+	bottom: 0;
+	background-color: inherit;
+	left: 0;
+	pointer-events: none;
+	padding-left: 10px;
+	padding-top: 5px;
+}
+
+.field .label-wrapper::after {
+	content: "";
+	position: absolute;
+	height: 40%;
+	width: 100%;
+	left: 0;
+	transform: translateX(-70%);
+	transition: transform 0.2s ease;
+}
+
+
+
+.field .label-text {
+	padding-left: 8%;
+	position: absolute;
+	left: 0px;
+	transition: all 0.2s ease;
+}
+
+.field input:focus+.label-wrapper .label-text,
+.field input:valid+.label-wrapper .label-text {
+	padding-left: 8%;
+	padding-top: 5%;
+	font-size: 15px;
+	/* Aumenta el tamaño de fuente a 20px */
+	color: rgb(0, 0, 64);
+	transform: translateY(-60%);
+}
+
+.field input:focus+.label-wrapper .label-text::after,
+.field input:valid+.label-wrapper .label-text::after {
+	font-size: 15px;
+	/* Aumenta el tamaño de fuente a 20px */
+	color: rgb(0, 0, 0);
+}
+
+.field input:focus+.label-wrapper::after,
+.field input:valid+.label-wrapper::after {
+	transform: translateX(0%);
+	color: rgb(0, 0, 0);
+	
+}
+
+.label-text1 {
+	padding-bottom: 2%;
+	padding-left: 7%;
+	font-size: 14px;
+}
+
+.field .label-text1 {
+	padding-left: 8%;
+	position: absolute;
+	left: 0px;
+	transition: all 0.2s ease;
+}
+
+.field input:not(:placeholder-shown) + .label-wrapper .label-text1,
+.field input:valid + .label-wrapper .label-text1 {
+	padding-left: 8%;
+	padding-top: 5%;
+	font-size: 15px;
+	/* Aumenta el tamaño de fuente a 20px */
+	color: rgb(0, 0, 64);
+	transform: translateY(-50%);
+}
+
+.field .textarea {
+    font-family: 'Sitka';
+    position: relative;
+    width: 80%;
+    height: 80px; /* Establece la altura deseada para el textarea */
+    color: rgb(128, 128, 128);
+    outline: 0;
+    border: none;
+    box-sizing: border-box;
+    font-size: 15px;
+    padding-left: 2%;
+    resize: none; /* Evita que el usuario redimensione el textarea */
+    margin-left: 6.5em;
+    border-radius: 10px;
+}
+
+.field .textarea:focus+.label-wrapper .label-text,
+.field .textarea:valid+.label-wrapper .label-text {
+    padding-top: -200%;
+    font-size: 15px;
+    color: rgb(0, 0, 64);
+    transform: translateY(-40%);
+}
+
+.field .textarea:focus+.label-wrapper .label-text::after,
+.field .textarea:valid+.label-wrapper .label-text::after {
+	padding-top: -20%;
+    font-size: 15px;
+    color: rgb(0, 0, 0);
+}
+
+.field .textarea:focus+.label-wrapper::after,
+.field .textarea:valid+.label-wrapper::after {
+	padding-top: -20%;
+    transform: translateX(0%);
+    color: rgb(0, 0, 0);
+}
+
+
+

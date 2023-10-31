@@ -1,0 +1,65 @@
+#buscarInput {
+  width: 20%;
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  font-family: 'Sitka';
+  position: absolute;
+  right: 16%;
+  top: 25%;
+}
+
+#buscarInput:hover {
+	text-decoration: none;
+	border-radius: 5px;
+	border: none;
+	outline: none;
+}
+
+#buscarInput:focus {
+	text-decoration: none;
+	border-radius: 5px;
+	border: none;
+	outline: none;
+}
+
+.section-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 92%;
+	margin-top: 4%;
+}
+
+.arrow-button {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	margin: 5px;
+	padding: 5px;
+	transition: color 0.3s;
+	color: white;
+}
+
+.arrow-container button:hover {
+	color: rgb(0, 255, 64);
+}
+
+.previous-button::before,
+.next-button::before {
+	content: "";
+	display: inline-block;
+	width: 0;
+	height: 10px;
+	border: 8px solid transparent;
+}
+
+.previous-button::before {
+	border-right-color: rgb(0, 255, 64);
+	margin-right: 5px;
+}
+
+.next-button::before {
+	border-left-color: rgb(0, 255, 64);
+	margin-left: 5px;
+}
