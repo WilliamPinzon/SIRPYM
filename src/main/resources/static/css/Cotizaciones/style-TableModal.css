@@ -1,0 +1,42 @@
+#tablaProductos {
+	overflow-x: auto;
+	width: 100%;
+	border-collapse: collapse;
+	table-layout: fixed;
+	font-size: 14px;
+}
+
+#tablaProductos th {
+	text-align: center;
+}
+
+#tablaProductos td {
+	text-align: center;
+	white-space: nowrap;
+	max-width: 550%;
+	width: 180%;
+	border-collapse: separate;
+}
+
+#tablaProductos th {
+	background-color: rgb(192, 192, 192);
+	color: rgb(0, 0, 0);
+}
+
+#tablaProductos th:nth-child(1),
+#tablaProductos td:nth-child(1),
+#tablaProductos th:nth-child(2),
+#tablaProductos td:nth-child(2)   {
+	width: 20%;
+}
+
+#tablaProductos th:nth-child(3),
+#tablaProductos td:nth-child(3)   {
+	width: 20%;
+}
+
+#tablaProductos th:nth-child(4),
+#tablaProductos td:nth-child(4)   {
+	max-width: 20%;
+}
+

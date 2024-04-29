@@ -1,0 +1,35 @@
+.formatted-input {
+	width: 100%;
+	color: inherit;
+	font-weight: inherit;
+	background: none;
+	border: none;
+	border-bottom: 1px solid #ccc;
+	background-color: rgb(192, 192, 192);
+	text-decoration: none;
+	border-radius: 5px;
+	outline: none;
+}
+
+.formatted-input::after {
+	color: inherit;
+	font-weight: inherit;
+	background: none;
+	border: none;
+	border-bottom: 1px solid #ccc;
+	background-color: rgb(192, 192, 192);
+	text-decoration: none;
+	border-radius: 5px;
+	outline: none;
+}
+
+.formatted-input:hover {
+	color: inherit;
+	font-weight: inherit;
+	background: none;
+	border-bottom: 0.5px double rgb(255, 128, 128);
+	background-color: rgb(192, 192, 192);
+	text-decoration: none;
+	border-radius: 5px;
+	outline: none;
+}

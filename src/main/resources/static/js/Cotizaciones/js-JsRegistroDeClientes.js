@@ -7,7 +7,6 @@ function validateExito(input) {
 		alertaExito.style.animation = '';
 	}, 20);
 
-	// Ocultar el alert después de 30 segundos
 	setTimeout(function() {
 		alertaExito.style.display = 'none';
 	}, 10000);
@@ -43,19 +42,19 @@ function validateNombre(input) {
 }
 
 function capitalizeEachWord(input) {
-    const nombre = input.value.trim(); // Obtener el valor y eliminar espacios en blanco al principio y al final
+    const nombre = input.value.trim();
     if (nombre.length > 0) {
-        const palabras = nombre.split(" "); // Dividir la cadena en palabras
+        const palabras = nombre.split(" ");
         const palabrasCapitalizadas = palabras.map(function (palabra) {
             return palabra.charAt(0).toUpperCase() + palabra.slice(1).toLowerCase();
         });
-        const nombreFormateado = palabrasCapitalizadas.join(" "); // Unir las palabras nuevamente
-        input.value = nombreFormateado; // Establecer el valor formateado en el campo de entrada
+        const nombreFormateado = palabrasCapitalizadas.join(" ");
+        input.value = nombreFormateado;
     }
 }
 
 
-function validarCorreoElectronicoCliente(input) {
+function validarcorreoElectronico(input) {
 	const regex = /^[\w\.-]+@[\w\.-]+\.\w+$/;
 	if (!regex.test(input.value)) {
 		var alerta = document.createElement("div");
@@ -122,11 +121,10 @@ function validateNumContacto(input) {
 	}
 }
 
-
 function mostrarModalConfirmacion() {
 	var modal = document.getElementById("modal-confirmacion");
 	modal.style.display = "block";
-	return false; // Evita el envío del formulario por defecto
+	return false;
 }
 
 function ocultarModalConfirmacion() {
@@ -137,42 +135,39 @@ function ocultarModalConfirmacion() {
 document.getElementById("btn-aceptar").addEventListener("click", function() {
 	var formularioRegistro = document.querySelector('form');
 	formularioRegistro.submit();
-	ocultarModalConfirmacion(); // Cierra el modal después de enviar el formulario.
+	ocultarModalConfirmacion();
 });
 
 document.getElementById("btn-cancelar").addEventListener("click", function() {
-	ocultarModalConfirmacion(); // Cierra el modal al hacer clic en "Cancelar"
+	ocultarModalConfirmacion();
 });
 
 document.getElementById("btn-close").addEventListener("click", function() {
-	ocultarModalConfirmacion(); // Cierra el modal al hacer clic en la "x"
+	ocultarModalConfirmacion();
 });
 
-const formularioRegistro = document.getElementById('RegistroCliente');
+const formularioRegistro = document.getElementById('RegistroCotizacion');
 formularioRegistro.addEventListener('submit', function(event) {
-	event.preventDefault(); // Prevenimos el envío del formulario por defecto
-	mostrarModalConfirmacion(); // Mostramos el modal de confirmación
+	event.preventDefault();
+	mostrarModalConfirmacion();
 });
 
 function borrar() {
-	// Obtener los elementos de entrada
-	const nombreClienteInput = document.getElementById("nombreCliente");
-	const tipoIDClienteInput = document.getElementById("tipoIDCliente");
-	const numeroIDClienteInput = document.getElementById("numeroIDCliente");
-	const correoElectronicoCliente = document.getElementById("correoElectronicoCliente");
-	const numeroDeContactoCliente = document.getElementById("numeroDeContactoCliente");
-	const direccionClienteInput = document.getElementById("direccionCliente");
-	const adicionalCliente = document.getElementById("adicionalCliente");
+	const nombreCompletoInput = document.getElementById("nombreCompleto");
+	const tipoDeDocumentoInput = document.getElementById("tipoDeDocumento");
+	const numeroDeDocumentoInput = document.getElementById("numeroDeDocumento");
+	const correoElectronicoInput = document.getElementById("correoElectronico");
+	const numeroDeContactoClienteInput = document.getElementById("numeroDeContactoCliente");
+	const direccionInput = document.getElementById("direccion");
+	const informacionAdicionalInput = document.getElementById("informacionAdicional");
 
-	// Limpiar los valores de los campos de entrada
-	nombreClienteInput.value = "";
-	tipoIDClienteInput.value = "";
-	numeroIDClienteInput.value = "";
-	correoElectronicoCliente.value = "";
-	numeroDeContactoCliente.value = "";
-	direccionClienteInput.value = "";
-	adicionalCliente.value = "";
+	nombreCompletoInput.value = "";
+	tipoDeDocumentoInput.value = "";
+	numeroDeDocumentoInput.value = "";
+	correoElectronicoInput.value = "";
+	numeroDeContactoClienteInput.value = "";
+	direccionInput.value = "";
+	informacionAdicionalInput.value = "";
 
-	// Opcional: colocar el foco en el primer campo de entrada después de limpiar
-	nombreClienteInput.focus();
+	nombreCompletoInput.focus();
 }

@@ -1,0 +1,231 @@
+ul,
+li a {
+	transition: width 0.5s;
+	transition: 2s;
+}
+
+
+.MenuCliente {
+	font-size: 12px;
+	margin: 10px;
+    padding: 1%;
+    position: absolute; /* Establece la posición absoluta */
+    left: 5px; /* Se posiciona desde el borde izquierdo */
+    top: 10; /* Se posiciona desde el borde superior */
+    width: 97%;
+    padding: 10px;
+    background: rgb(28, 4, 42);
+    background: linear-gradient(170deg, rgb(255, 255, 255) 100%, rgba(48, 58, 105, 1) 100%);
+    border-radius: 5px;
+    box-shadow: 0 0 3px rgb(95, 95, 95);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.MenuCliente > * {
+    flex: 1;
+    margin-right: 10px;
+    font-size: 12px;
+}
+
+.MenuCliente label,
+.MenuCliente input,
+.MenuCliente button,
+.MenuCliente select {
+    width: 100%;
+    font-size: 12px;
+}
+
+.MenuProductos {
+	margin: 10px;
+    position: absolute; /* Establece la posición absoluta */
+    left: 5px; /* Se posiciona desde el borde izquierdo */
+    top: 40%; /* Ajusta la distancia desde la parte superior para que quede donde deseas */
+    margin-top: 1%;
+    padding: 10px;
+    background-color: rgb(148, 164, 207);
+    border-radius: 5px;
+    box-shadow: 0 0 3px rgb(95, 95, 95);
+    background: rgb(0, 0, 0);
+    background: linear-gradient(170deg, rgb(255, 255, 255) 100%, rgb(0, 0, 128) 100%);
+    color: rgb(0, 0, 0);
+    width: 97%;
+}
+
+.botones {
+	margin: 10px;
+    position: absolute; /* Establece la posición absoluta */
+    left: 5px; /* Se posiciona desde el borde izquierdo */
+    top: 85%; /* Ajusta la distancia desde la parte superior para que quede debajo de .MenuProductos */
+    margin-top: 1%;
+    padding: 7px;
+    background-color: rgb(148, 164, 207);
+    border-radius: 5px;
+    box-shadow: 0 0 3px rgb(95, 95, 95);
+    background: rgb(0, 0, 0);
+    background: linear-gradient(170deg, rgb(255, 255, 255) 100%, rgb(0, 0, 128) 100%);
+    color: rgb(0, 0, 0);
+    width: 97%;
+}
+
+
+
+.botones span {
+    flex: 1;
+    text-align: left;
+    font-weight: bold;
+}
+
+.botones span input {
+    flex: 1;
+    text-align: left;
+    background-color: #ccc;
+    border-radius: 5px;
+    border: none;
+    width: 100%;
+}
+
+.MenuCliente span{
+	margin-bottom: 10px;
+}
+
+.MenuProductos span{
+	margin-bottom: 10px;
+}
+
+.calendario{
+	text-align: left;
+}
+
+#opciones1,
+#opciones2 {
+    cursor: pointer; /* Aplica cursor pointer a los selectores */
+}
+
+#opciones1 option,
+#opciones2 option {
+    cursor: pointer; /* Aplica cursor pointer a las opciones dentro de los selectores */
+}
+
+.table{
+	font-size: 12px;
+	border-collapse: collapse;
+}
+
+.table th {
+	border-radius: 5px;
+	background-color: rgb(244, 244, 244);
+	font-size: 12px;
+	border-collapse: collapse;
+	table-layout: fixed;
+	text-align: center;
+}
+
+.table th:nth-child(1),
+.table td:nth-child(1) {
+	width: 50%;
+}
+
+.table th:nth-child(2),
+.table td:nth-child(2) {
+	width: 10%;
+}
+
+.table th:nth-child(3),
+.table td:nth-child(3) {
+	width: 10%;
+}
+
+.table th:nth-child(4),
+.table td:nth-child(4) {
+	width: 80%;
+	padding: -50%;
+}
+
+.table th:nth-child(5),
+.table td:nth-child(5) {
+	width: 10%;
+}
+
+th,
+td {
+	text-align: left;
+	overflow: hidden;
+	white-space: nowrap;
+	max-width: 100%;
+	font-size: 12px;
+}
+
+table th {
+	background-color: rgba(37, 129, 196, 1);
+	color: rgb(192, 192, 192);
+	font-size: 12px;
+}
+
+table td {
+	padding: 1%;
+	background-color: rgb(192, 192, 192);
+	color: rgb(0, 0, 0);
+	font-weight: bold;
+	font-size: 12px;
+}
+
+th,
+td {
+	text-align: left;
+	height: 10px;
+	font-size: 12px;
+}
+
+table input {
+	border-radius: 5px;
+	border: 1px solid #ccc;
+}
+
+.current-view {
+	margin-right: 50px;
+	float: right;
+	font-weight: bold;
+	margin-left: 10px;
+}
+
+.delete-button {
+	margin-left: 5px;
+	border: none;
+	border-bottom-right-radius: 10px;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	background-color: rgb(255, 128, 128);
+	color: white;
+	transition: background-color 0.5s, color 0.5s;
+}
+
+.delete-button:hover {
+	border: none;
+	border-top-right-radius: 10px;
+	background-color: rgb(255, 0, 0);
+	color: white;
+}
+
+
+#btnAceptar,
+#btnCancelar {
+	background-color: #4CAF50;
+	border: none;
+	color: white;
+	padding: 10px 24px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+.flatpickr-time {
+	width: 100%;
+}
+
+
+

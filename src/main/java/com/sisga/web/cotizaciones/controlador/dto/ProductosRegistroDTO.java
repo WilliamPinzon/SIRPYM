@@ -1,4 +1,4 @@
-package com.sisga.web.controlador.dto;
+package com.sisga.web.cotizaciones.controlador.dto;
 
 import java.time.LocalDateTime;
 
@@ -6,15 +6,15 @@ public class ProductosRegistroDTO {
 
 private Long id;
 	
-	private String nombreProducto;
+	private String nombreItem;
 	
-	private String precioProducto;
+	private String valorUnitario;
 	
-	private String incProducto;
+	private String impoconsumo;
 	
-	private String baseProducto;
+	private String valorBase;
 	
-	private String descripcionProducto;
+	private String descripcion;
 	
     private LocalDateTime fechaDeRegistro = LocalDateTime.now();
     
@@ -24,15 +24,15 @@ private Long id;
 		super();
 	}
 
-	public ProductosRegistroDTO(Long id, String nombreProducto, String precioProducto, String incProducto,
-			String baseProducto, String descripcionProducto, LocalDateTime fechaDeRegistro, LocalDateTime fechaDeModificacion) {
+	public ProductosRegistroDTO(Long id, String nombreItem, String valorUnitario, String impoconsumo,
+			String valorBase, String descripcion, LocalDateTime fechaDeRegistro, LocalDateTime fechaDeModificacion) {
 		super();
 		this.id = id;
-		this.nombreProducto = nombreProducto;
-		this.precioProducto = precioProducto;
-		this.incProducto = incProducto;
-		this.baseProducto = baseProducto;
-		this.descripcionProducto = descripcionProducto;
+		this.nombreItem = nombreItem;
+		this.valorUnitario = valorUnitario;
+		this.impoconsumo = impoconsumo;
+		this.valorBase = valorBase;
+		this.descripcion = descripcion;
 		this.fechaDeRegistro = fechaDeRegistro;
 		this.fechaDeModificacion = fechaDeModificacion;
 	}
@@ -45,44 +45,44 @@ private Long id;
 		this.id = id;
 	}
 
-	public String getNombreProducto() {
-		return nombreProducto;
+	public String getNombreItem() {
+		return nombreItem;
 	}
 
-	public void setNombreProducto(String nombreProducto) {
-		this.nombreProducto = nombreProducto;
+	public void setNombreItem(String nombreItem) {
+		this.nombreItem = nombreItem;
 	}
 
-	public String getPrecioProducto() {
-		return precioProducto;
+	public String getValorUnitario() {
+		return valorUnitario;
 	}
 
-	public void setPrecioProducto(String precioProducto) {
-		this.precioProducto = precioProducto;
+	public void setValorUnitario(String valorUnitario) {
+		this.valorUnitario = valorUnitario;
 	}
 
-	public String getIncProducto() {
-		return incProducto;
+	public String getImpoconsumo() {
+		return impoconsumo;
 	}
 
-	public void setIncProducto(String incProducto) {
-		this.incProducto = incProducto;
+	public void setImpoconsumo(String impoconsumo) {
+		this.impoconsumo = impoconsumo;
 	}
 
-	public String getBaseProducto() {
-		return baseProducto;
+	public String getValorBase() {
+		return valorBase;
 	}
 
-	public void setBaseProducto(String baseProducto) {
-		this.baseProducto = baseProducto;
+	public void setValorBase(String valorBase) {
+		this.valorBase = valorBase;
 	}
 
-	public String getDescripcionProducto() {
-		return descripcionProducto;
+	public String getDescripcion() {
+		return descripcion;
 	}
 
-	public void setDescripcionProducto(String descripcionProducto) {
-		this.descripcionProducto = descripcionProducto;
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 
 	public LocalDateTime getFechaDeRegistro() {
@@ -100,4 +100,5 @@ private Long id;
 	public void setFechaDeModificacion(LocalDateTime fechaDeModificacion) {
 		this.fechaDeModificacion = fechaDeModificacion;
 	}
+
 }

@@ -2,119 +2,105 @@
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 
 <head>
-
 	<meta charset="utf-8">
 	<link rel="shortcut icon" th:href="@{/img/LogoRefugioDelSisga.png}" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Administración de Servicios</title>
+	<title>Servicios</title>
 
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
-	<link rel="stylesheet" type="text/css" th:href="@{/css/style-AdministracionDeServicios.css}">
-	<link rel="stylesheet" type="text/css" th:href="@{/css/style-EstilosGenericos.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Genericos/style-MenuPrincipal.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Genericos/style-footer.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Genericos/style-MigaPan.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Genericos/style-Nav.css}">
 
 </head>
 
 <body>
-	<div class="titulo" id="titulo">
-		ADMINISTRACIÓN DE SERVICIOS
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container-fluid">
+			<a class="navbar-brand">
+				Servicios
+				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" style="margin-top: -7px;"
+					fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
+					<path
+						d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z" />
+					<path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z" />
+				</svg>
+			</a>
+			<div class="ml-auto">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li>
+						<a class="nav-link btn btn-outline-light" th:href="@{/#}">Ayuda
+							<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" style="margin-top: -3px;"
+								fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+								<path
+									d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2" />
+							</svg>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="migaPan navbar-dark bg-dark ms-auto">
+				<a th:href="@{/Servicios}">Servicios</a>
+			</div>
+		</nav>
 	</div>
-	<div class="menu" id="menu">
-		<div class="ayuda">
-			<a th:href="@{/#}" title="Ayuda">
-				<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
-					class="bi bi-question-square" viewBox="0 0 16 16">
-					<path
-						d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
-					<path
-						d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
-				</svg>
-			</a>
 
-			<a id="mostrarOcultarBoton" onclick="mostrarOcultar()" title="Menú">
-				<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
-					class="bi bi-chevron-double-left" viewBox="0 0 16 16">
-					<path fill-rule="evenodd"
-						d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
-					<path fill-rule="evenodd"
-						d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
-				</svg>
-			</a>
-		</div>
+	<div class="section-container">
+		<a class="opcionUno" th:href="@{/Nomina}">
+			<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor"
+				class="bi bi-person-vcard-fill" viewBox="0 0 16 16">
+				<path
+					d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm9 1.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4a.5.5 0 0 0-.5.5M9 8a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 0-1h-4A.5.5 0 0 0 9 8m1 2.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1h-3a.5.5 0 0 0-.5.5m-1 2C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1 1 0 0 0 2 13h6.96q.04-.245.04-.5M7 6a2 2 0 1 0-4 0 2 2 0 0 0 4 0" />
+			</svg>
+			<br><br>
+			<span>
+				Gestión de
+				<br>
+				Nomina
+			</span>
+		</a>
 
-		<div class="navegacion">
-			<ul class="no-afectar">
-				<li>
-					<a th:href="@{/#}" class="menu-link">Menú Principal
-						<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor"
-							class="bi bi-house-fill" viewBox="0 0 16 16">
-							<path
-								d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z" />
-							<path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z" />
-						</svg>
-					</a>
-				</li>
-			</ul>
-		</div>
+		<a class="opcionDos" th:href="@{/Cotizaciones}">
+			<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor"
+				class="bi bi-file-text-fill" viewBox="0 0 16 16">
+				<path
+					d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2M5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1m-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5M5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1m0 2h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1" />
+			</svg>
+			<br><br>
+			<span>
+				Gestión de
+				<br>
+				Cotizaciones
+			</span>
+		</a>
+
+		<a class="opcionTres" th:href="@{/MenuMateriaPrima}">
+			<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor"
+				class="bi bi-file-ruled-fill" viewBox="0 0 16 16">
+				<path
+					d="M12 0H4a2 2 0 0 0-2 2v4h12V2a2 2 0 0 0-2-2m2 7H6v2h8zm0 3H6v2h8zm0 3H6v3h6a2 2 0 0 0 2-2zm-9 3v-3H2v1a2 2 0 0 0 2 2zm-3-4h3v-2H2zm0-3h3V7H2z" />
+			</svg>
+			<br><br>
+			<span>
+				Gestión de
+				<br>
+				Materia Prima
+			</span>
+		</a>
+
 	</div>
-	<main>
-		<div class="migaPan">
-			<a th:href="@{/AdministracionDeServicios}">
-				Administración de Servicios
-			</a>
-		</div>
-		<div class="section-container">
-
-			<a class="opcionUno" th:href="@{/#}">
-				<svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor"
-					class="bi bi-file-earmark-bar-graph-fill" viewBox="0 0 16 16">
-					<path
-						d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm.5 10v-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-2.5.5a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1zm-3 0a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-1z" />
-				</svg>
-				<br><br>
-				<span>
-					Gestionar
-					<br>
-					Nomina
-				</span>
-			</a>
-
-			<a class="opcionDos" th:href="@{/AdministracionDeCotizaciones}">
-				<svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor"
-					class="bi bi-person-lines-fill" viewBox="0 0 16 16">
-					<path
-						d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z" />
-				</svg>
-				<br><br>
-				<span>Gestionar
-					<br>
-					Cotizaciones
-				</span>
-			</a>
-
-			<a class="opcionTres" th:href="@{/#}">
-				<svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" fill="currentColor"
-					class="bi bi-database-fill-gear" viewBox="0 0 16 16">
-					<path
-						d="M8 1c-1.573 0-3.022.289-4.096.777C2.875 2.245 2 2.993 2 4s.875 1.755 1.904 2.223C4.978 6.711 6.427 7 8 7s3.022-.289 4.096-.777C13.125 5.755 14 5.007 14 4s-.875-1.755-1.904-2.223C11.022 1.289 9.573 1 8 1Z" />
-					<path
-						d="M2 7v-.839c.457.432 1.004.751 1.49.972C4.722 7.693 6.318 8 8 8s3.278-.307 4.51-.867c.486-.22 1.033-.54 1.49-.972V7c0 .424-.155.802-.411 1.133a4.51 4.51 0 0 0-4.815 1.843A12.31 12.31 0 0 1 8 10c-1.573 0-3.022-.289-4.096-.777C2.875 8.755 2 8.007 2 7Zm6.257 3.998L8 11c-1.682 0-3.278-.307-4.51-.867-.486-.22-1.033-.54-1.49-.972V10c0 1.007.875 1.755 1.904 2.223C4.978 12.711 6.427 13 8 13h.027a4.552 4.552 0 0 1 .23-2.002Zm-.002 3L8 14c-1.682 0-3.278-.307-4.51-.867-.486-.22-1.033-.54-1.49-.972V13c0 1.007.875 1.755 1.904 2.223C4.978 15.711 6.427 16 8 16c.536 0 1.058-.034 1.555-.097a4.507 4.507 0 0 1-1.3-1.905Zm3.631-4.538c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382l.045-.148ZM14 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" />
-				</svg>
-				<br><br>
-				<span>
-					Gestionar
-					<br>
-					Materia Prima
-				</span>
-			</a>
-		</div>
-	</main>
-	<script th:src="@{/js/js-AdministracionDeCotizaciones.js}"></script>
-	<script th:src="@{/js/js-JsGenerico.js}"></script>
 </body>
+
 <footer>
-	© SIRPYM V1.0.1. 2023
+	© SIRPYM V1.0.1. 2024
 </footer>
 
 </html>

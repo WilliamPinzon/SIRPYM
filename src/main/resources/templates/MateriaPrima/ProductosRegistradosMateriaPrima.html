@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+	<meta charset="utf-8">
+	<link rel="shortcut icon" th:href="@{/img/LogoRefugioDelSisga.png}" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Inventario de Productos</title>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" th:href="@{/css/MateriaPrima/style-InventarioDeProductos.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Cotizaciones/style-BuscarInput.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Cotizaciones/style-Nav.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/MateriaPrima/style-Table.css}">
+
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Genericos/style-SectionContainer.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Genericos/style-Wrapper.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Genericos/style-MigaPan.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Genericos/style-footer.css}">
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container-fluid">
+			<a class="navbar-brand">
+				Productos Registrados
+				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" style="margin-top: -7px;"
+					fill="currentColor" class="bi bi-box-seam-fill" viewBox="0 0 16 16">
+					<path fill-rule="evenodd"
+						d="M15.528 2.973a.75.75 0 0 1 .472.696v8.662a.75.75 0 0 1-.472.696l-7.25 2.9a.75.75 0 0 1-.557 0l-7.25-2.9A.75.75 0 0 1 0 12.331V3.669a.75.75 0 0 1 .471-.696L7.443.184l.01-.003.268-.108a.75.75 0 0 1 .558 0l.269.108.01.003 6.97 2.789ZM10.404 2 4.25 4.461 1.846 3.5 1 3.839v.4l6.5 2.6v7.922l.5.2.5-.2V6.84l6.5-2.6v-.4l-.846-.339L8 5.961 5.596 5l6.154-2.461L10.404 2Z" />
+				</svg>
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<div class="nav-item mr-2">
+						<li>
+							<a class="nav-link btn btn-outline-light" th:href="@{/MenuMateriaPrima}" title="Menú Anterior">Menú
+								Anterior
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="margin-top: -3px;" fill="currentColor"
+									class="bi bi-box-arrow-in-left" viewBox="0 0 16 16">
+									<path fill-rule="evenodd"
+										d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0z" />
+									<path fill-rule="evenodd"
+										d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708z" />
+								</svg>
+							</a>
+						</li>
+					</div>
+					<div class="nav-item mr-2">
+						<li>
+							<a class="nav-link btn btn-outline-light" th:href="@{/RegistroDeProductosMateriaPrima}">Nuevo Producto
+								<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" style="margin-top: -3px;"
+									fill="currentColor" class="bi bi-file-earmark-plus-fill" viewBox="0 0 16 16">
+									<path
+										d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM8.5 7v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 1 0z" />
+								</svg>
+							</a>
+						</li>
+					</div>
+					<div class="nav-item">
+						<li>
+							<a class="nav-link btn btn-outline-light"
+								th:href="@{/ConfiguracionDeProductosMateriaPrima}">Configurar Productos
+								<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" style="margin-top: -3px;"
+									fill="currentColor" class="bi bi-tools" viewBox="0 0 16 16">
+									<path
+										d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z" />
+								</svg>
+							</a>
+						</li>
+					</div>
+				</ul>
+				<input id="buscarInput" class="search-input" onkeyup="buscarProducto()"
+					placeholder="Buscar por Nombre de Ítem...">
+				<div class="ml-auto">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li>
+							<a class="nav-link btn btn-outline-light" th:href="@{/#}">Ayuda
+								<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" style="margin-top: -3px;"
+									fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+									<path
+										d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2" />
+								</svg>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="migaPan navbar-dark bg-dark ms-auto">
+				<a th:href="@{/Servicios}">Servicios</a>
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+					class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
+					<path fill-rule="evenodd"
+						d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z" />
+				</svg>
+				<span class="bi bi-chevron-compact-right"></span>
+				<a th:href="@{/MenuMateriaPrima}">Materias Primas</a>
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+					class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
+					<path fill-rule="evenodd"
+						d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z" />
+				</svg>
+				<span class="bi bi-chevron-compact-right"></span>
+				<a th:href="@{/ProductosRegistradosMateriaPrima}">Productos Registrados</a>
+
+
+			</div>
+		</nav>
+
+		<div class="section-container">
+			<div class="wrapper">
+				<div class="arrow-container">
+					<span class="input-group-text d-flex justify-content-between align-items-center"
+						style="height: 30px; margin-top: 10px; font-size: 12px;">
+						<span>Registros actuales: &nbsp;<span th:text="${maxIndice}"></span></span>
+						<button th:if="${Productos.size() > 8}" class="arrow-button previous-button"
+							onclick="showPrevious()">
+							<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" style="margin-top: -0.5px;"
+								fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 16">
+								<path fill-rule="evenodd"
+									d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
+								<path fill-rule="evenodd"
+									d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
+							</svg>
+							Anterior
+						</button>
+						<button th:if="${Productos.size() > 8}" class="arrow-button next-button" onclick="showNext()">
+							Siguiente
+							<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" style="margin-top: -0.5px;"
+								fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+								<path fill-rule="evenodd"
+									d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708" />
+								<path fill-rule="evenodd"
+									d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708" />
+							</svg>
+						</button>
+						<span class="current-view ml-auto" style="font-size: 12px;">Vista 1</span>
+					</span>
+				</div>
+				<div class="wrapper-responsive">
+					<div class="table" style="width: 100%;">
+						<table class="table">
+							<thead class="thead-dark">
+								<tr>
+									<th scope="col">N°</th>
+									<th scope="col">Ítem</th>
+									<th scope="col">Unidad</th>
+									<th scope="col">Fecha de Registro</th>
+									<th scope="col">Fecha de Modificación</th>
+								</tr>
+							</thead>
+							<tbody id="mainTableBody">
+								<tr th:each="producto, iterStat : ${Productos}" th:if="${iterStat.index < 1000000000}">
+									<td th:text="${iterStat.count}">Índice</td>
+									<td th:text="${producto.nombreItem}">Nombre</td>
+									<td th:text="${producto.unidad}">Unidad</td>
+									<td th:text="${#temporals.format(producto.fechaDeRegistro, 'yyyy-MM-dd HH:mm:ss')}">
+										Fecha de Registro</td>
+									<td
+										th:text="${#temporals.format(producto.fechaDeModificacion, 'yyyy-MM-dd HH:mm:ss')}">
+										Fecha de Registro</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script th:src="@{/js/js-InventarioDeProductos.js}"></script>
+
+	<footer>
+		© SIRPYM V1.0.1. 2024
+	</footer>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+		integrity="sha384-B7mhmc9kD1+AsvYJjDDfb1POrCrlZLP0ng7XuKL6aQpsaB5SaN5GwDn7lvPZpWfH"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+		integrity="sha384-vkP2/vAgpZF6wv5zKGDDMSDQc5eCsuPPx2L62eNU3ShO8vcikQMxLhB3qv9rtge5"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>

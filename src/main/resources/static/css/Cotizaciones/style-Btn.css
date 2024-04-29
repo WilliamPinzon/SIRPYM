@@ -1,0 +1,54 @@
+.btn-editar {
+	width: 100%;
+	border: none;
+	border-bottom-right-radius: 10px;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	background-color: dodgerblue;
+	color: white;
+}
+
+.btn-editar:hover {
+	width: 100%;
+	border: none;
+	border-top-right-radius: 10px;
+	background-color: rgb(0, 70, 140);
+	color: white;
+	font-size: 15px;
+}
+
+.btn-guardar {
+	width: 100%;
+	border: none;
+	background-color: rgb(0, 255, 0);
+	color: rgb(0, 0, 0);
+	z-index: 1;
+}
+
+.btn-guardar:hover {
+	width: 100%;
+	border: none;
+	border-top-right-radius: 10px;
+	background-color: rgb(0, 128, 0);
+	color: white;
+	font-size: 15px;
+}
+
+.btn-eliminar {
+	width: 100%;
+	border: none;
+	border-bottom-right-radius: 10px;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	background-color: rgb(255, 128, 128);
+	color: white;
+}
+
+.btn-eliminar:hover {
+	width: 100%;
+	border: none;
+	border-top-right-radius: 10px;
+	background-color: rgb(255, 0, 0);
+	color: white;
+	font-size: 15px;
+}

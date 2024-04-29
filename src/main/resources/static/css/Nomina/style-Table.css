@@ -1,0 +1,65 @@
+#tabla1 {
+	background: rgb(28, 4, 42);
+    background: linear-gradient(170deg, rgb(255, 255, 255) 100%, rgba(48, 58, 105, 1) 100%);
+    border-radius: 2px;
+    box-shadow: 0 0 3px rgb(95, 95, 95);
+    overflow-x: auto;
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-size: 10px;
+    margin-bottom: 10%;
+    margin-top: 2%;
+    text-align: left; /* Alinea la tabla a la izquierda */
+    left: 0;
+}
+
+#tabla1  th {
+    text-align: center;
+}
+
+#tabla1  td {
+    text-align: left;
+    white-space: nowrap;
+    max-width: 550%;
+    width: 180%;
+    border-collapse: collapse;
+}
+
+#tabla1 th {
+    background-color: rgb(192, 192, 192);
+    color: rgb(0, 0, 0);
+}
+
+#tabla2 {
+	background: rgb(28, 4, 42);
+    background: linear-gradient(170deg, rgb(255, 255, 255) 100%, rgba(48, 58, 105, 1) 100%);
+    border-radius: 2px;
+    box-shadow: 0 0 3px rgb(95, 95, 95);
+    overflow-x: auto;
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    font-size: 10px;
+    margin-top: 1.2%;
+    text-align: left; /* Alinea la tabla a la izquierda */
+}
+
+#tabla2  th {
+    text-align: center;
+}
+
+#tabla2  td {
+    text-align: left;
+    white-space: nowrap;
+    max-width: 550%;
+    width: 180%;
+    border-collapse: collapse;
+}
+
+#tabla2 th {
+    background-color: rgb(192, 192, 192);
+    color: rgb(0, 0, 0);
+}
+
+

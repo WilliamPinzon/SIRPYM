@@ -1,4 +1,4 @@
-package com.sisga.web.servicio;
+package com.sisga.web.cotizaciones.servicio;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,14 +6,14 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sisga.web.controlador.dto.ClientesRegistroDTO;
-import com.sisga.web.modelo.Cliente;
-import com.sisga.web.modelo.TipodeID;
-import com.sisga.web.repositorio.ClientesRepositorio;
+import com.sisga.web.cotizaciones.controlador.dto.ClientesRegistroDTO;
+import com.sisga.web.cotizaciones.modelo.Cliente;
+import com.sisga.web.cotizaciones.modelo.TipodeID;
+import com.sisga.web.cotizaciones.repositorio.ClientesRepositorio;
 
 @Service
 public class ClientesServicioImplementacion implements ClientesServicio {
-	
+
 	@Autowired
 	private ClientesRepositorio clientesRepositorio;
 
@@ -27,68 +27,70 @@ public class ClientesServicioImplementacion implements ClientesServicio {
 		return clientesRepositorio.findAll();
 	}
 
-//	@Override
-//	public List<Cliente> listarClientes() {
-//		return clientesRepositorio.findAll();
-//	}
-//
 	@Override
 	public Cliente guardar(ClientesRegistroDTO clientesRegistroDTO) {
-		Cliente cliente = new Cliente(
-									clientesRegistroDTO.getNombreCliente(),
-									clientesRegistroDTO.getTipoIDCliente(),
-									clientesRegistroDTO.getNumeroIDCliente(),
-									clientesRegistroDTO.getCorreoElectronicoCliente(),
-									clientesRegistroDTO.getNumeroDeContactoCliente(),
-									clientesRegistroDTO.getDireccionCliente(),
-									clientesRegistroDTO.getAdicionalCliente());
+		Cliente cliente = new Cliente(clientesRegistroDTO.getNombreCompleto(), clientesRegistroDTO.getTipoDeDocumento(),
+				clientesRegistroDTO.getNumeroDeDocumento(), clientesRegistroDTO.getCorreoElectronico(),
+				clientesRegistroDTO.getNumeroDeContacto(), clientesRegistroDTO.getDireccion(),
+				clientesRegistroDTO.getInformacionAdicional());
 		return clientesRepositorio.save(cliente);
 	}
 
 	@Override
-	public boolean existeCliente(String nombreCliente) {
-		Cliente cliente = clientesRepositorio.findByNombreCliente(nombreCliente);
-        return nombreCliente != null;
+	public boolean existeCliente(String numeroDeDocumento) {
+		Cliente cliente = clientesRepositorio.findByNumeroDeDocumento(numeroDeDocumento);
+		return cliente != null;
 	}
 
 	@Override
 	public Cliente obtenerClientePorId(Long id) {
-        return clientesRepositorio.findById(id).orElse(null);
-    }
-
-	@Override
-    public void guardarCliente(ClientesRegistroDTO clienteData) {
-		clientesRepositorio.save(clienteData);
-    }
-
-//	@Override
-//	public void eliminarCliente(Long Id) {
-//		clientesRepositorio.deleteById(Id);
-//		
-//	}
-
-	@Override
-	public long cantidadDeRegistros() {
-	  long cantidadRegistros = clientesRepositorio.count();
-	  return cantidadRegistros;
+		return clientesRepositorio.findById(id).orElse(null);
 	}
 
 	@Override
-    public Cliente editarCliente(Long id, String nombreCliente, TipodeID tipoIDCliente, String numeroIDCliente, String correoElectronicoCliente, String numeroDeContactoCliente, String direccionCliente, String adicionalCliente) {
-        Optional<Cliente> optionalCliente = clientesRepositorio.findById(id);
-        if (optionalCliente.isPresent()) {
-        	Cliente cliente = optionalCliente.get();
-        	cliente.setNombreCliente(nombreCliente);
-        	cliente.setTipoIDCliente(tipoIDCliente);
-        	cliente.setNumeroIDCliente(numeroIDCliente);
-        	cliente.setCorreoElectronicoCliente(correoElectronicoCliente);
-        	cliente.setNumeroDeContactoCliente(direccionCliente);
-        	cliente.setDireccionCliente(adicionalCliente);
-            return clientesRepositorio.save(cliente);
-        }
-        return null; // Manejar la lógica de error si el artículo no existe
-    }
+	public Cliente obtenerClientePorNombre(String nombreCompleto) {
+		Cliente cliente = clientesRepositorio.findByNombreCompleto(nombreCompleto);
+		return cliente;
+	}
 
+	@Override
+	public Cliente obtenerClientePorDoc(String numeroDeDocumento) {
+		Cliente cliente = clientesRepositorio.findByNumeroDeDocumento(numeroDeDocumento);
+		return cliente;
+	}
+
+	@Override
+	public void guardarCliente(ClientesRegistroDTO clientesRegistroDTO) {
+		clientesRepositorio.save(clientesRegistroDTO);
+	}
+
+	@Override
+	public void deleteById(Long id) {
+		clientesRepositorio.deleteById(id);
+	}
+
+	@Override
+	public long cantidadDeRegistros() {
+		long cantidadRegistros = clientesRepositorio.count();
+		return cantidadRegistros;
+	}
+
+	@Override
+	public Cliente editarCliente(Long id, String nombreCompleto, TipodeID tipoDeDocumento, String numeroDeDocumento,
+			String correoElectronico, String numeroDeContacto, String direccion,
+			String informacionAdicional) {
+		Optional<Cliente> optionalCliente = clientesRepositorio.findById(id);
+		if (optionalCliente.isPresent()) {
+			Cliente cliente = optionalCliente.get();
+			cliente.setNombreCompleto(nombreCompleto);
+			cliente.setTipoDeDocumento(tipoDeDocumento);
+			cliente.setNumeroDeDocumento(numeroDeDocumento);
+			cliente.setCorreoElectronico(correoElectronico);
+			cliente.setNumeroDeContacto(numeroDeContacto);
+			cliente.setInformacionAdicional(informacionAdicional);
+			return clientesRepositorio.save(cliente);
+		}
+		return null;
+	}
 
 }
-

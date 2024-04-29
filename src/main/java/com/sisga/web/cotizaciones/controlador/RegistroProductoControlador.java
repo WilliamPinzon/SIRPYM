@@ -1,4 +1,4 @@
-package com.sisga.web.controlador;
+package com.sisga.web.cotizaciones.controlador;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.sisga.web.controlador.dto.ProductosRegistroDTO;
-import com.sisga.web.servicio.ProductosServicio;
+import com.sisga.web.cotizaciones.controlador.dto.ProductosRegistroDTO;
+import com.sisga.web.cotizaciones.servicio.ProductosServicio;
 
 @Controller
 @RequestMapping("/RegistroDeProductos")
@@ -28,7 +28,7 @@ public class RegistroProductoControlador {
 	
 	@GetMapping
 	public String mostrarFormularioDeRegistroProducto() {
-		return "RegistroDeProductos";
+		return "/Cotizaciones/RegistroDeProductos";
 	}
 	
 	@PostMapping

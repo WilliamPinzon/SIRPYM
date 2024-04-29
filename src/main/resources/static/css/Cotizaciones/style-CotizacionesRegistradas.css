@@ -1,0 +1,45 @@
+.table th:nth-child(1),
+.table td:nth-child(1) {
+	width: 2%;
+}
+
+.table th:nth-child(2),
+.table td:nth-child(2) {
+	width: 1%;
+	border-right: 1px solid #ddd;
+}
+
+.table th:nth-child(3),
+.table td:nth-child(3) {
+	width: 10%;
+}
+
+.table th:nth-child(4),
+.table td:nth-child(4) {
+	width: 15%;
+}
+
+.table th:nth-child(5),
+.table td:nth-child(5) {
+	width: 5%;
+}
+
+.table th:nth-child(6),
+.table td:nth-child(6) {
+	width: 5%;
+}
+
+.table th:nth-child(7),
+.table td:nth-child(7) {
+	width: 5%;
+}
+
+.table th:nth-child(8),
+.table td:nth-child(8) {
+	width: 10%;
+}
+
+.table th:nth-child(9),
+.table td:nth-child(9) {
+	width: 8%;
+}

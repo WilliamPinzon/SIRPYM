@@ -1,19 +1,27 @@
 #buscarInput {
-  width: 20%;
-  text-decoration: none;
-  border-radius: 5px;
-  border: none;
-  font-family: 'Sitka';
-  position: absolute;
-  right: 16%;
-  top: 25%;
+	background-color: rgb(255, 255, 255);
+	width: 30%;
+	text-decoration: none;
+	border-radius: 5px;
+	border: none;
+	font-family: 'Sitka';
+	position: relative;
+	right: 5%;
+}
+
+.search-input {
+	padding-left: 24px;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: 4px center;
+	background-size: 16px;
 }
 
 #buscarInput:hover {
 	text-decoration: none;
 	border-radius: 5px;
 	border: none;
-	outline: none;
+	position: relative;
 }
 
 #buscarInput:focus {
@@ -21,14 +29,7 @@
 	border-radius: 5px;
 	border: none;
 	outline: none;
-}
-
-.section-container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 92%;
-	margin-top: 4%;
+	position: relative;
 }
 
 .arrow-button {
@@ -38,11 +39,11 @@
 	margin: 5px;
 	padding: 5px;
 	transition: color 0.3s;
-	color: white;
+	color: rgb(0, 0, 0);
 }
 
 .arrow-container button:hover {
-	color: rgb(0, 255, 64);
+	color: rgb(255, 0, 0);
 }
 
 .previous-button::before,
@@ -50,16 +51,7 @@
 	content: "";
 	display: inline-block;
 	width: 0;
-	height: 10px;
+	height: 7px;
 	border: 8px solid transparent;
 }
 
-.previous-button::before {
-	border-right-color: rgb(0, 255, 64);
-	margin-right: 5px;
-}
-
-.next-button::before {
-	border-left-color: rgb(0, 255, 64);
-	margin-left: 5px;
-}

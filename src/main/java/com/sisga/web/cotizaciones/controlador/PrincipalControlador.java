@@ -1,4 +1,4 @@
-package com.sisga.web.controlador;
+package com.sisga.web.cotizaciones.controlador;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -6,11 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class PrincipalControlador {
 
-	
-	@GetMapping("/")
-	public String inicioCotizaciones() {
-		return "AdministracionDeServicios";
-	}
-	
-	
+//	@GetMapping("/")
+//	public String inicioCotizaciones() {
+//		return "/Cotizaciones/Servicios";
+//	}
+
 }

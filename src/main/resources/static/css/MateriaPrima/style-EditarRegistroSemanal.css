@@ -1,0 +1,52 @@
+li a:hover,
+li a::before {
+	transition: width 0.5s;
+	transition: 1s;
+}
+
+ul li a svg {
+	transition: width 0.5s;
+}
+
+.nav-item {
+	margin-right: 10px;
+}
+
+.nav-item li a:hover,
+.nav-link:hover {
+	color: black;
+}
+
+.table th:nth-child(1),
+.table td:nth-child(1),
+.table th:nth-child(2),
+.table td:nth-child(2),
+.table th:nth-child(3),
+.table td:nth-child(3) {
+	width: 4%;
+}
+
+.table th:nth-child(4),
+.table td:nth-child(4) {
+	width: 10%;
+	text-align: left;
+}
+
+.table th:nth-child(5),
+.table td:nth-child(5) {
+	width: 10%;
+	border-right: 1px solid #ddd;
+}
+
+.table th:nth-child(6),
+.table td:nth-child(6),
+.table th:nth-child(7),
+.table td:nth-child(7),
+.table th:nth-child(8),
+.table td:nth-child(8),	
+.table th:nth-child(9),
+.table td:nth-child(9) {
+	width: 10%;
+	text-align: center;
+}
+

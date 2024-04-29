@@ -1,5 +1,4 @@
-
-package com.sisga.web.modelo;
+package com.sisga.web.cotizaciones.modelo;
 
 import java.time.LocalDateTime;
 
@@ -15,64 +14,71 @@ import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "clientesCotizaciones", uniqueConstraints = @UniqueConstraint(columnNames = "id"))
+@Table(name = "COTIZACIONES_CLIENTES", uniqueConstraints = @UniqueConstraint(columnNames = "ID_CLIENTE"))
 public class Cliente {
+
 	@Id
+	@Column(name = "ID_CLIENTE")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private String nombreCliente;
+	@Column(name = "NOMBRE_COMPLETO", nullable = false)
+	private String nombreCompleto;
 
 	@Enumerated(EnumType.STRING)
-	private TipodeID tipoIDCliente;
+	private TipodeID tipoDeDocumento;
 
-	private String numeroIDCliente;
+	@Column(name = "NUMERO_DE_DOCUMENTO", nullable = false)
+	private String numeroDeDocumento;
 
-	private String correoElectronicoCliente;
+	@Column(name = "CORREO_ELECTORNICO", nullable = false)
+	private String correoElectronico;
 
-	private String numeroDeContactoCliente;
+	@Column(name = "NUMERO_DE_CONTACTO", nullable = false)
+	private String numeroDeContacto;
 
-	private String direccionCliente;
+	@Column(name = "DIRECCION", nullable = false)
+	private String direccion;
 
-	private String adicionalCliente;
+	@Column(name = "INFORMACION_ADICIONAL", nullable = false)
+	private String informacionAdicional;
 
-	@Column(name = "fecha_de_registro")
+	@Column(name = "FECHA_DE_REGISTRO")
 	private LocalDateTime fechaDeRegistro = LocalDateTime.now();
 
-	@Column(name = "fecha_de_modificacion")
+	@Column(name = "FECHA_DE_MODIFICACION")
 	private LocalDateTime fechaDeModificacion = LocalDateTime.now();
 
 	public Cliente() {
 		super();
 	}
 
-	public Cliente(Long id, String nombreCliente, TipodeID tipoIDCliente, String numeroIDCliente,
-			String correoElectronicoCliente, String numeroDeContactoCliente, String direccionCliente,
-			String adicionalCliente, LocalDateTime fechaDeRegistro, LocalDateTime fechaDeModificacion) {
+	public Cliente(Long id, String nombreCompleto, TipodeID tipoDeDocumento, String numeroDeDocumento,
+			String correoElectronico, String numeroDeContacto, String direccion, String informacionAdicional,
+			LocalDateTime fechaDeRegistro, LocalDateTime fechaDeModificacion) {
 		super();
 		this.id = id;
-		this.nombreCliente = nombreCliente;
-		this.tipoIDCliente = tipoIDCliente;
-		this.numeroIDCliente = numeroIDCliente;
-		this.correoElectronicoCliente = correoElectronicoCliente;
-		this.numeroDeContactoCliente = numeroDeContactoCliente;
-		this.direccionCliente = direccionCliente;
-		this.adicionalCliente = adicionalCliente;
+		this.nombreCompleto = nombreCompleto;
+		this.tipoDeDocumento = tipoDeDocumento;
+		this.numeroDeDocumento = numeroDeDocumento;
+		this.correoElectronico = correoElectronico;
+		this.numeroDeContacto = numeroDeContacto;
+		this.direccion = direccion;
+		this.informacionAdicional = informacionAdicional;
 		this.fechaDeRegistro = fechaDeRegistro;
 		this.fechaDeModificacion = fechaDeModificacion;
 	}
 
-	public Cliente(String nombreCliente, TipodeID tipoIDCliente, String numeroIDCliente,
-			String correoElectronicoCliente, String numeroDeContactoCliente, String direccionCliente,
-			String adicionalCliente) {
+	public Cliente(String nombreCompleto, TipodeID tipoDeDocumento, String numeroDeDocumento, String correoElectronico,
+			String numeroDeContacto, String direccion, String informacionAdicional) {
 		super();
-		this.nombreCliente = nombreCliente;
-		this.tipoIDCliente = tipoIDCliente;
-		this.numeroIDCliente = numeroIDCliente;
-		this.correoElectronicoCliente = correoElectronicoCliente;
-		this.numeroDeContactoCliente = numeroDeContactoCliente;
-		this.direccionCliente = direccionCliente;
-		this.adicionalCliente = adicionalCliente;
+		this.nombreCompleto = nombreCompleto;
+		this.tipoDeDocumento = tipoDeDocumento;
+		this.numeroDeDocumento = numeroDeDocumento;
+		this.correoElectronico = correoElectronico;
+		this.numeroDeContacto = numeroDeContacto;
+		this.direccion = direccion;
+		this.informacionAdicional = informacionAdicional;
 	}
 
 	public Long getId() {
@@ -83,60 +89,60 @@ public class Cliente {
 		this.id = id;
 	}
 
-	public String getNombreCliente() {
-		return nombreCliente;
+	public String getNombreCompleto() {
+		return nombreCompleto;
 	}
 
-	public void setNombreCliente(String nombreCliente) {
-		this.nombreCliente = nombreCliente;
+	public void setNombreCompleto(String nombreCompleto) {
+		this.nombreCompleto = nombreCompleto;
 	}
 
-	public TipodeID getTipoIDCliente() {
-		return tipoIDCliente;
+	public TipodeID getTipoDeDocumento() {
+		return tipoDeDocumento;
 	}
 
-	public void setTipoIDCliente(TipodeID tipoIDCliente) {
-		this.tipoIDCliente = tipoIDCliente;
+	public void setTipoDeDocumento(TipodeID tipoDeDocumento) {
+		this.tipoDeDocumento = tipoDeDocumento;
 	}
 
-	public String getNumeroIDCliente() {
-		return numeroIDCliente;
+	public String getNumeroDeDocumento() {
+		return numeroDeDocumento;
 	}
 
-	public void setNumeroIDCliente(String numeroIDCliente) {
-		this.numeroIDCliente = numeroIDCliente;
+	public void setNumeroDeDocumento(String numeroDeDocumento) {
+		this.numeroDeDocumento = numeroDeDocumento;
 	}
 
-	public String getCorreoElectronicoCliente() {
-		return correoElectronicoCliente;
+	public String getCorreoElectronico() {
+		return correoElectronico;
 	}
 
-	public void setCorreoElectronicoCliente(String correoElectronicoCliente) {
-		this.correoElectronicoCliente = correoElectronicoCliente;
+	public void setCorreoElectronico(String correoElectronico) {
+		this.correoElectronico = correoElectronico;
 	}
 
-	public String getNumeroDeContactoCliente() {
-		return numeroDeContactoCliente;
+	public String getNumeroDeContacto() {
+		return numeroDeContacto;
 	}
 
-	public void setNumeroDeContactoCliente(String numeroDeContactoCliente) {
-		this.numeroDeContactoCliente = numeroDeContactoCliente;
+	public void setNumeroDeContacto(String numeroDeContacto) {
+		this.numeroDeContacto = numeroDeContacto;
 	}
 
-	public String getDireccionCliente() {
-		return direccionCliente;
+	public String getDireccion() {
+		return direccion;
 	}
 
-	public void setDireccionCliente(String direccionCliente) {
-		this.direccionCliente = direccionCliente;
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
 	}
 
-	public String getAdicionalCliente() {
-		return adicionalCliente;
+	public String getInformacionAdicional() {
+		return informacionAdicional;
 	}
 
-	public void setAdicionalCliente(String adicionalCliente) {
-		this.adicionalCliente = adicionalCliente;
+	public void setInformacionAdicional(String informacionAdicional) {
+		this.informacionAdicional = informacionAdicional;
 	}
 
 	public LocalDateTime getFechaDeRegistro() {

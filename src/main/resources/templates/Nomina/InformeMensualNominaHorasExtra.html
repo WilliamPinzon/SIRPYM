@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+	<meta charset="utf-8">
+	<link rel="shortcut icon" th:href="@{/img/LogoRefugioDelSisga.png}" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Informe Nomina Ordinaria Mensual</title>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Nomina/style-NominaDiaria.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Nomina/style-Table.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Cotizaciones/style-Modal.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Nomina/style-AlertHoraExtra.css}">
+
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Genericos/style-SectionContainer.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Genericos/style-Wrapper.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Genericos/style-MigaPan.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Genericos/style-ScrollBar.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Genericos/style-footer.css}">
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container-fluid">
+			<a class="navbar-brand">
+				Informe Mensual Nomina Horas Extra
+				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+					class="bi bi-journal-text" viewBox="0 0 16 16">
+					<path
+						d="M5 10.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5" />
+					<path
+						d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2" />
+					<path
+						d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z" />
+				</svg>
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<div class="nav-item mr-2">
+						<li>
+							<a class="nav-link btn btn-outline-light" th:href="@{/InformesNomina}">Menú
+								Anterior
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="margin-top: -3px;"
+									fill="currentColor" class="bi bi-box-arrow-in-left" viewBox="0 0 16 16">
+									<path fill-rule="evenodd"
+										d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0z" />
+									<path fill-rule="evenodd"
+										d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708z" />
+								</svg>
+							</a>
+						</li>
+					</div>
+					<div class="nav-item mr-2">
+						<li>
+							<a class="nav-link btn btn-outline-light" th:href="@{/NominaHorasExtra}">Nueva Nomina
+								<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" style="margin-top: -3px;"
+									fill="currentColor" class="bi bi-file-earmark-plus-fill" viewBox="0 0 16 16">
+									<path
+										d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM8.5 7v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 1 0z" />
+								</svg>
+							</a>
+						</li>
+					</div>
+				</ul>
+				<div class="ml-auto">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li>
+							<a class="nav-link btn btn-outline-light" th:href="@{/#}">Ayuda
+								<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" style="margin-top: -3px;"
+									fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+									<path
+										d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2" />
+								</svg>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="migaPan navbar-dark bg-dark ms-auto">
+				<a th:href="@{/Servicios}">Servicios</a>
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+					class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
+					<path fill-rule="evenodd"
+						d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z" />
+				</svg>
+				<span class="bi bi-chevron-compact-right"></span>
+				<a th:href="@{/Nomina}">Nomina</a>
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+					class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
+					<path fill-rule="evenodd"
+						d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z" />
+				</svg>
+				<span class="bi bi-chevron-compact-right"></span>
+				<a th:href="@{/ServiciosNomina}">Servicios Nomina</a>
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+					class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
+					<path fill-rule="evenodd"
+						d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z" />
+				</svg>
+				<span class="bi bi-chevron-compact-right"></span>
+				<a th:href="@{/InformesNomina}">Informes Nomina</a>
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+					class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
+					<path fill-rule="evenodd"
+						d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z" />
+				</svg>
+				<span class="bi bi-chevron-compact-right"></span>
+				<a th:href="@{/InformeMensualNominaHorasExtra}">Informe Mesual Horas Extra</a>
+			</div>
+		</nav>
+
+		<div class="section-container">
+			<div class="wrapper">
+				<div th:if="${param.error}" onchange="validateExito(this)">
+					<div id="exito" class="alert-error">
+						<p>
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+								class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+								<path
+									d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+							</svg>
+							Error, no hay registro de datos<br> para guardar!.<br>
+						</p>
+					</div>
+				</div>
+
+				<div th:if="${param.errorFecha}" onchange="validateExito(this)">
+					<div id="exito" class="alert-error">
+						<p>
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+								class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+								<path
+									d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+							</svg>
+							Error, no se ha ingresado ninguna <br>fecha para guardar los datos!.<br>
+						</p>
+					</div>
+				</div>
+
+
+				<div class="wrapper-responsive">
+					<div class="arrow-container" style="margin-top: 2%">
+						<div class="input-group">
+							<span class="input-group-text" style="font-size: 12px;">Mes de la Nómina</span>
+							<!-- Input para seleccionar la fecha -->
+							<input class="form-control" id="fechaDeRegistroNomina" type="month" style="max-width: 30%;"
+								required>
+							<!-- Botón para enviar la fecha al servidor -->
+							<button class="btn btn-primary" onclick="filtrarPorMes()">Filtrar</button>
+
+						</div>
+					</div>
+					<div class="table" style="width: 100%;">
+						<div class="row">
+							<div class="col-md-12">
+								<span class="input-group-text" style="font-size: 12px; margin-top: 2%;">Informe de
+									Nomina Mensual</span>
+								<!-- Tabla para mostrar los colaboradores -->
+								<table class="table table-striped" id="tabla1">
+									<thead class="thead-dark">
+										<tr>
+											<th scope="col">N°</th>
+											<th scope="col">Nombre Completo</th>
+											<th scope="col">Total Horas Extra Generadas</th>
+										</tr>
+									</thead>
+									<tbody id="mainTableBody">
+										<!-- Aquí se mostrarán los colaboradores -->
+									</tbody>
+								</table>
+								<div class="col-md-12" style="margin-bottom: 5%;">
+									<button id="descargarRegistrosBtn" class="btn btn-success">Descargar Registros
+										<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
+											fill="currentColor" class="bi bi-file-earmark-x-fill" viewBox="0 0 16 16">
+											<path
+												d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M6.854 7.146 8 8.293l1.146-1.147a.5.5 0 1 1 .708.708L8.707 9l1.147 1.146a.5.5 0 0 1-.708.708L8 9.707l-1.146 1.147a.5.5 0 0 1-.708-.708L7.293 9 6.146 7.854a.5.5 0 1 1 .708-.708" />
+										</svg>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.4/xlsx.full.min.js"></script>
+	<script th:src="@{/js/Nomina/js-JsNominaDiariaInput.js}"></script>
+	<script th:src="@{/js/Nomina/js-JsObtenerDatosNominaHorasExtra.js}"></script>
+	<script th:src="@{/js/Nomina/js-JsDescargarInformeNominaHorasExtra.js}"></script>
+</body>
+<footer>
+	© SIRPYM V1.0.1. 2024
+</footer>
+
+
+</html>

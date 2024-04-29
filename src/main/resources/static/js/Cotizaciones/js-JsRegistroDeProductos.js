@@ -7,7 +7,6 @@ function validateExito(input) {
 		alertaExito.style.animation = '';
 	}, 20);
 
-	// Ocultar el alert después de 30 segundos
 	setTimeout(function() {
 		alertaExito.style.display = 'none';
 	}, 10000);
@@ -34,23 +33,23 @@ function validateNombre(input) {
 		}, 20);
 		alerta.style.color = "rgb(0, 0, 64)";
 		input.value = "";
-		const incProductoInput = document.getElementById("incProducto");
-		const baseProductoInput = document.getElementById("baseProducto");
-		incProductoInput.value = "";
-		baseProductoInput.value = "";
+		const impoconsumoInput = document.getElementById("impoconsumo");
+		const valorUnitarioInput = document.getElementById("valorUnitario");
+		impoconsumoInput.value = "";
+		valorUnitarioInput.value = "";
 		input.focus();
 	}
 }
 
 function capitalizeEachWord(input) {
-    const nombre = input.value.trim(); // Obtener el valor y eliminar espacios en blanco al principio y al final
+    const nombre = input.value.trim();
     if (nombre.length > 0) {
-        const palabras = nombre.split(" "); // Dividir la cadena en palabras
+        const palabras = nombre.split(" ");
         const palabrasCapitalizadas = palabras.map(function (palabra) {
             return palabra.charAt(0).toUpperCase() + palabra.slice(1).toLowerCase();
         });
-        const nombreFormateado = palabrasCapitalizadas.join(" "); // Unir las palabras nuevamente
-        input.value = nombreFormateado; // Establecer el valor formateado en el campo de entrada
+        const nombreFormateado = palabrasCapitalizadas.join(" ");
+        input.value = nombreFormateado;
     }
 }
 
@@ -73,10 +72,10 @@ function validatePrecio(input) {
 			alertaExito.style.animation = '';
 		}, 20);
 		input.value = "";
-		const incProductoInput = document.getElementById("incProducto");
-		const baseProductoInput = document.getElementById("baseProducto");
-		incProductoInput.value = "";
-		baseProductoInput.value = "";
+		const impoconsumoInput = document.getElementById("impoconsumo");
+		const valorUnitarioInput = document.getElementById("valorUnitario");
+		impoconsumoInput.value = "";
+		valorUnitarioInput.value = "";
 		input.focus();
 	}
 }
@@ -85,14 +84,14 @@ function updateValues(input) {
 	const precio = parseFloat(input.value);
 
 	if (isNaN(precio)) {
-		document.getElementById("incProducto").value = "";
-		document.getElementById("baseProducto").value = "";
+		document.getElementById("impoconsumo").value = "";
+		document.getElementById("valorBase").value = "";
 	} else {
 		const base = precio / 1.08;
 		const impoConsumo = precio - base;
 
-		document.getElementById("incProducto").value = impoConsumo.toFixed(2);
-		document.getElementById("baseProducto").value = base.toFixed(2);
+		document.getElementById("impoconsumo").value = impoConsumo.toFixed(2);
+		document.getElementById("valorBase").value = base.toFixed(2);
 	}
 }
 
@@ -100,7 +99,7 @@ function updateValues(input) {
 function mostrarModalConfirmacion() {
 	var modal = document.getElementById("modal-confirmacion");
 	modal.style.display = "block";
-	return false; // Evita el envío del formulario por defecto
+	return false;
 }
 
 function ocultarModalConfirmacion() {
@@ -111,38 +110,35 @@ function ocultarModalConfirmacion() {
 document.getElementById("btn-aceptar").addEventListener("click", function() {
 	var formularioRegistro = document.querySelector('form');
 	formularioRegistro.submit();
-	ocultarModalConfirmacion(); // Cierra el modal después de enviar el formulario.
+	ocultarModalConfirmacion();
 });
 
 document.getElementById("btn-cancelar").addEventListener("click", function() {
-	ocultarModalConfirmacion(); // Cierra el modal al hacer clic en "Cancelar"
+	ocultarModalConfirmacion();
 });
 
 document.getElementById("btn-close").addEventListener("click", function() {
-	ocultarModalConfirmacion(); // Cierra el modal al hacer clic en la "x"
+	ocultarModalConfirmacion();
 });
 
 const formularioRegistro = document.getElementById('RegistroProducto');
 formularioRegistro.addEventListener('submit', function(event) {
-	event.preventDefault(); // Prevenimos el envío del formulario por defecto
-	mostrarModalConfirmacion(); // Mostramos el modal de confirmación
+	event.preventDefault();
+	mostrarModalConfirmacion();
 });
 
 function borrar() {
-	// Obtener los elementos de entrada
-	const nombreProductoInput = document.getElementById("nombreProducto");
-	const precioProductoInput = document.getElementById("precioProducto");
-	const incProductoInput = document.getElementById("incProducto");
-	const baseProductoInput = document.getElementById("baseProducto");
-	const descripcionProductoInput = document.getElementById("descripcionProducto");
+	const nombreItemInput = document.getElementById("nombreItem");
+	const valorUnitarioInput = document.getElementById("valorUnitario");
+	const impoconsumoInput = document.getElementById("impoconsumo");
+	const valorBaseInput = document.getElementById("valorBase");
+	const descripcionInput = document.getElementById("descripcion");
 
-	// Limpiar los valores de los campos de entrada
-	nombreProductoInput.value = "";
-	precioProductoInput.value = "";
-	incProductoInput.value = "";
-	baseProductoInput.value = "";
-	descripcionProductoInput.value = "";
-
-	// Opcional: colocar el foco en el primer campo de entrada después de limpiar
-	nombreProductoInput.focus();
+	nombreItemInput.value = "";
+	valorUnitarioInput.value = "";
+	impoconsumoInput.value = "";
+	valorUnitarioInput.value = "";
+	descripcionInput.value = "";
+	valorBaseInput
+	nombreItemInput.focus();
 }

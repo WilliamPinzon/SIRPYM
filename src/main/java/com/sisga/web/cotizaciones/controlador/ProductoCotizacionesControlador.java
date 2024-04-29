@@ -1,11 +1,11 @@
-package com.sisga.web.controlador;
+package com.sisga.web.cotizaciones.controlador;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.sisga.web.servicio.ProductosServicio;
+import com.sisga.web.cotizaciones.servicio.ProductosServicio;
 
 @Controller
 public class ProductoCotizacionesControlador {
@@ -13,28 +13,28 @@ public class ProductoCotizacionesControlador {
 	@Autowired
 	private ProductosServicio productosServicio;
 	
-	@GetMapping("AdministracionDeCotizaciones")
+	@GetMapping("Cotizaciones")
 	public String MenuPrincipalCotizaciones() {
-		return "AdministracionDeCotizaciones";
+		return "/Cotizaciones/Cotizaciones";
 	}
 	
-	@GetMapping("AdministracionDeServicios")
+	@GetMapping("Servicios")
 	public String MenuPrincipalServicios() {
-		return "AdministracionDeServicios";
+		return "/Cotizaciones/Servicios";
 	}
 	
-	@GetMapping("InventarioDeProductos")
+	@GetMapping("ProductosRegistrados")
 	public String verInventarioDeProductos(Model modelo) {
 		modelo.addAttribute("Productos", productosServicio.listarProductos());
 		modelo.addAttribute("maxIndice", productosServicio.cantidadDeRegistros());
-		return "InventarioDeProductos";
+		return "/Cotizaciones/ProductosRegistrados";
 	}
 	
 	@GetMapping("ConfiguracionDeProductos")
 	public String verConfiguracionDeProductos(Model modelo) {
 		modelo.addAttribute("Productos", productosServicio.listarProductos());
 		modelo.addAttribute("maxIndice", productosServicio.cantidadDeRegistros());
-		return "ConfiguracionDeProductos";
+		return "/Cotizaciones/ConfiguracionDeProductos";
 	}
 	
 }

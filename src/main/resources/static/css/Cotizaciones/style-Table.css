@@ -1,0 +1,24 @@
+.table {
+	width: 180%;
+	border-collapse: collapse;
+	table-layout: fixed;
+	font-size: 14px;
+	overflow-x: auto;
+}
+
+.table th {
+	text-align: center;
+}
+
+.table td {
+	text-align: left;
+	white-space: nowrap;
+	max-width: 550%;
+	width: 180%;
+	border-collapse: collapse;
+}
+
+.table th {
+	background-color: rgb(192, 192, 192);
+	color: rgb(0, 0, 0);
+}

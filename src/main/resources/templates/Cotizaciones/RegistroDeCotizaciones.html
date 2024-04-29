@@ -3,118 +3,129 @@
 
 <head>
 	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<link rel="shortcut icon" th:href="@{/img/LogoRefugioDelSisga.png}" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Registro de Cotizaciones</title>
 
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.3/flatpickr.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
-	<link rel="stylesheet" type="text/css" th:href="@{/css/style-RegistroDeClientes.css}">
-	<link rel="stylesheet" type="text/css" th:href="@{/css/style-EstilosGenericos.css}">
-	<link rel="stylesheet" type="text/css" th:href="@{/css/style-Modal.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Cotizaciones/style-RegistroDeCotizaciones.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Cotizaciones/style-Modal.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Cotizaciones/style-Nav.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Cotizaciones/style-Btn.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Cotizaciones/style-Alert.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Cotizaciones/style-Suggestions.css}">
+
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Genericos/style-SectionContainer.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Genericos/style-Wrapper.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Genericos/style-MigaPan.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Genericos/style-footer.css}">
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 
 </head>
 
 <body>
-	<div class="titulo">
-		REGISTRO DE COTIZACIONES
-	</div>
-	<div class="menu" id="menu">
-		<div class="ayuda">
-			<a th:href="@{/}" title="Ayuda">
-				<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
-					class="bi bi-question-square" viewBox="0 0 16 16">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container-fluid">
+			<a class="navbar-brand">
+				Registro de Cotización
+				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" style="margin-top: -7px;" fill="currentColor"
+					class="bi bi-clipboard-plus-fill" viewBox="0 0 16 16">
 					<path
-						d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+						d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5z" />
 					<path
-						d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
+						d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5zm4.5 6V9H10a.5.5 0 0 1 0 1H8.5v1.5a.5.5 0 0 1-1 0V10H6a.5.5 0 0 1 0-1h1.5V7.5a.5.5 0 0 1 1 0" />
 				</svg>
 			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<div class="nav-item mr-2">
+						<li>
+							<a class="nav-link btn btn-outline-light" th:href="@{/Cotizaciones}"
+								title="Menú Anterior">Menú Anterior
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="margin-top: -3px;" fill="currentColor"
+									class="bi bi-box-arrow-in-left" viewBox="0 0 16 16">
+									<path fill-rule="evenodd"
+										d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0z" />
+									<path fill-rule="evenodd"
+										d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708z" />
+								</svg>
+							</a>
+						</li>
+					</div>
+					<div class="nav-item mr-2">
+						<li>
+							<a class="nav-link btn btn-outline-light" th:href="@{/CotizacionesRegistradas}"
+								title="Clientes Registrados">Cotizaciones Registradas
 
-			<a id="mostrarOcultarBoton" onclick="mostrarOcultar()" title="Menú">
-				<svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor"
-					class="bi bi-chevron-double-left" viewBox="0 0 16 16">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="margin-top: -3px;" fill="currentColor"
+									class="bi bi-clipboard-data-fill" viewBox="0 0 16 16">
+									<path
+										d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5z" />
+									<path
+										d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1A2.5 2.5 0 0 1 9.5 5h-3A2.5 2.5 0 0 1 4 2.5zM10 8a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0zm-6 4a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0zm4-3a1 1 0 0 1 1 1v3a1 1 0 1 1-2 0v-3a1 1 0 0 1 1-1" />
+								</svg>
+							</a>
+						</li>
+					</div>
+				</ul>
+				<div class="ml-auto">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li>
+							<a class="nav-link btn btn-outline-light" th:href="@{/#}" title="Ayuda">Ayuda
+								<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" style="margin-top: -3px;"
+									fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+									<path
+										d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2" />
+								</svg>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="migaPan navbar-dark bg-dark ms-auto">
+				<a th:href="@{/Servicios}">Servicios</a>
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+					class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
 					<path fill-rule="evenodd"
-						d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
-					<path fill-rule="evenodd"
-						d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+						d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z" />
 				</svg>
-			</a>
-		</div>
-		<div class="navegacion">
-			<ul class="no-afectar">
-				<li>
-					<a th:href="@{/AdministracionDeCotizaciones}" class="menu-link">Menú Anterior
-						<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor"
-							class="bi bi-house-fill" viewBox="0 0 16 16">
-							<path
-								d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z" />
-							<path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z" />
-						</svg>
-					</a>
-				</li>
-			</ul>
-			<ul class="no-afectar">
-				<li>
-					<a th:href="@{/ClientesRegistrados}" class="menu-link">Clientes Registrados
-						<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor"
-							class="bi bi-box-seam-fill" viewBox="0 0 16 16">
-							<path fill-rule="evenodd"
-								d="M15.528 2.973a.75.75 0 0 1 .472.696v8.662a.75.75 0 0 1-.472.696l-7.25 2.9a.75.75 0 0 1-.557 0l-7.25-2.9A.75.75 0 0 1 0 12.331V3.669a.75.75 0 0 1 .471-.696L7.443.184l.01-.003.268-.108a.75.75 0 0 1 .558 0l.269.108.01.003 6.97 2.789ZM10.404 2 4.25 4.461 1.846 3.5 1 3.839v.4l6.5 2.6v7.922l.5.2.5-.2V6.84l6.5-2.6v-.4l-.846-.339L8 5.961 5.596 5l6.154-2.461L10.404 2Z" />
-						</svg>
-					</a>
-				</li>
-			</ul>
-			<ul class="no-afectar">
-				<li>
-					<a th:href="@{/ConfiguracionDeClientes}" class="menu-link"> Configuración
-						<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor"
-							class="bi bi-tools" viewBox="0 0 16 16">
-							<path
-								d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z" />
-						</svg>
-					</a>
-				</li>
-			</ul>
-		</div>
-	</div>
-
-	<main>
-		<div class="migaPan">
-			<a th:href="@{/AdministracionDeServicios}">Administración de Servicios</a>
-			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-				class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
-				<path fill-rule="evenodd"
-					d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z" />
-			</svg>
-
-			<a th:href="@{/AdministracionDeCotizaciones}">Administración de Cotizaciones</a>
-
-			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-				class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
-				<path fill-rule="evenodd"
-					d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z" />
-			</svg>
-
-			<a th:href="@{/RegistroDeClientes}">Registrar Cotización</a>
-
-		</div>
+				<span class="bi bi-chevron-compact-right"></span>
+				<a th:href="@{/Cotizaciones}">Cotizaciones</a>
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+					class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
+					<path fill-rule="evenodd"
+						d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z" />
+				</svg>
+				<span class="bi bi-chevron-compact-right"></span>
+				<a th:href="@{/RegistroDeCotizaciones}">Registro De Cotización</a>
+			</div>
+		</nav>
 
 		<div class="section-container">
 			<div class="row">
-				<div class="col-md-6 col-md-offset-3">
-					<div th:if="${param.exito}" onchange="validateExito(this)">
-						<div id="exito" class="alert-exito">
-							<p>
-								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-									class="bi bi-check-circle-fill" viewBox="0 0 16 16">
-									<path
-										d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
-								</svg>
-								Cliente Registrado con Éxito!.<br><br>Ya puede gestionar cotizaciones <br>
-								con este cliente.
-							</p>
+				<div class="col-md-6 offset-md-3">
+					<div th:if="${param.save}" onchange="validateExito(this)">
+						<div id="exito" class="alert alert-success">
+							<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+								class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+								<path
+									d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+							</svg>
+							Cotización Registrada con Éxito!.<br><br>
 						</div>
 					</div>
 
@@ -127,152 +138,294 @@
 						</div>
 					</div>
 
-					<div th:if=${ClienteExistente}>
-						<div id="exito" class="alert-error">
-							<p><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-								class="bi bi-x-square-fill" viewBox="0 0 16 16"> +
-								<path
-									d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 4.646L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z" />
-							</svg>
-							
-								Numero de ID del Cliente Invalido.<br><br>Ya hay un cliente registrado en la <br> base
-								de datos con
-								ese ID.
-								<br><br>Por favor valide en la opción de <br>configuación
-							</p>
+					<div id="modal-eliminar" class="modal">
+						<div class="modal-content">
+							<span class="close" id="btn-closeF">&times;</span>
+							<p>¿Está seguro de eliminar este producto?</p>
+							<button id="btn-aceptarF" class="btn-aceptar">Aceptar</button>
+							<button id="btn-cancelarF" class="btn-cancelar">Cancelar</button>
 						</div>
 					</div>
 
-				</div>
+					<form th:action="@{/RegistroDeCotizaciones}" method="post" th:object="${cotizacion}"
+						onsubmit="return mostrarModalConfirmacion()">
 
-				<form th:action="@{/RegistroDeClientes}" method="post" th:object="${cliente}"
-					onsubmit="return mostrarModalConfirmacion()">
-					<div class="two-column-form	">
-						<div class="field">
-							<input id="nombreCliente" type="text" name="nombreCliente" class="form-control"
-								autocomplete="off" th:field="*{nombreCliente}" required autofocus="autofocus"
-								onchange="validateNombre(this)" onblur="capitalizeEachWord(this)" />
-							<label for="first-name" class="label-wrapper">
-								<span class="label-text">
-									Nombre Completo:
-								</span>
-							</label>
-						</div>
+						<div class="two-column-form">
 
-						<br>
+							<div class="MenuCliente">
+								<div>
+									<span class="input-group-text">Información del Cliente y del Evento:</span>
+									<select id="numeroIDdCliente" hidden>
+										<option></option>
+									</select>
 
-						<div class="field">
-							<div style="position: relative; cursor: pointer;">
-								<select id="tipoIDCliente" name="tipoIDCliente" class="form-control"
-									th:field="*{tipoIDCliente}" required autofocus>
-									<option class="label-text" value="">Tipo de Identificación</option>
-									<option th:each="tipo : ${tiposID}" th:value="${tipo}" th:text="${tipo.nombre}">
-									</option>
-								</select>
-								<div class="select-icon">
-									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-										class="bi bi-chevron-compact-down" viewBox="0 0 16 16"
-										style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%);">
-										<path fill-rule="evenodd"
-											d="M1.553 6.776a.5.5 0 0 1 .67-.223L8 9.44l5.776-2.888a.5.5 0 1 1 .448.894l-6 3a.5.5 0 0 1-.448 0l-6-3a.5.5 0 0 1-.223-.67z" />
-									</svg>
+									<div class="row">
+										<div class="col-md-6 mb-3">
+											<label for="cantidad" class="form-control">Consecutivo de Cotización
+												N°&nbsp;
+												<span class="form-control" th:text="${cotizaciones}"
+													id="cotizacionNumero"></span>
+											</label>
+										</div>
+
+										<div class="col-md-6 mb-3">
+											<label for="cantidad" class="form-control"
+												style="padding-bottom: 2.5%;">Cantidad de Comensales:&nbsp;
+												<input type="number" min="1" max="200" value="1" id="cantidad"
+													class="form-control bg-light text-dark" name="cantidadComensales">
+											</label>
+										</div>
+
+
+										<div class="col-md-6 mb-3">
+											<input type="number" class="form-control bg-light text-dark"
+												id="numeroIDClientes" name="numeroDeDocumentoCliente"
+												onchange="buscarClienteporNumero(this.value)"
+												placeholder="Buscar Cliente por NUID o NIT" aria-label="NIT o NUID"
+												aria-describedby="basic-addon2" required>
+
+											<div class="suggestionsID" id="suggestionsID">
+												<div th:each="cliente : ${clientes}" class="suggestionsID-itemID"
+													th:value="${cliente.id}" th:text="${cliente.numeroDeDocumento}">
+												</div>
+											</div>
+										</div>
+
+										<div class="col-md-6 mb-3">
+											<input aria-autocomplete="list" role="searchbox" aria-haspopup="true"
+												aria-expanded="false" aria-activedescendant="p-highlighted-option"
+												class="form-control bg-light text-dark" type="text" id="razon"
+												name="nombreCompletoCliente" required
+												onchange="buscarClienteporNombre(this.value)"
+												placeholder="Buscar Cliente por Nombre Natural o Razón Social">
+
+											<div class="suggestions" id="suggestionsNombreCliente">
+												<div th:each="cliente : ${clientes}" class="suggestion-item"
+													th:value="${cliente.id}" th:text="${cliente.nombreCompleto}"></div>
+											</div>
+										</div>
+
+										<input type="hidden" id="fechaSeleccionada" name="fechaEvento">
+
+										<div class="col-md-6 mb-3">
+											<button id="mostrarCalendario" class="btn btn-primary calendario">Fecha
+												y hora del
+												evento
+												<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+													fill="currentColor" class="bi bi-calendar3" viewBox="0 0 16 16">
+													<path
+														d="M14 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2M1 3.857C1 3.384 1.448 3 2 3h12c.552 0 1 .384 1 .857v10.286c0 .473-.448.857-1 .857H2c-.552 0-1-.384-1-.857z" />
+													<path
+														d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2m3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
+												</svg>
+											</button>
+										</div>
+
+										<div class="col-md-6 mb-3">
+											<div class="row">
+												<div class="col">
+													<select class="form-select bg-light text-dark" id="opciones1"
+														onchange="obtenerValorAbono()">
+														<option value="" disabled selected>Abono</option>
+														<option value="0%">0% Abono</option>
+														<option value="30%">30% Abono</option>
+														<option value="50%">50% Abono</option>
+													</select>
+												</div>
+												<div class="col">
+													<select class="form-select bg-light text-dark" id="opciones2"
+														onchange="obtenerValorPropina()">
+														<option value="" disabled selected>Propina</option>
+														<option value="SI">Propina Incluida</option>
+														<option value="NO">Sin Propina</option>
+													</select>
+												</div>
+											</div>
+										</div>
+
+									</div>
+
+									<input type="text" id="numeroDeContactoCliente" name="numeroDeContactoCliente"
+										readonly hidden>
+
+									<input type="text" id="correoElectronicoCliente" name="correoElectronicoCliente"
+										readonly hidden>
+
+									<input type="text" id="direccionCliente" name="direccionCliente" readonly hidden>
+
+									<input type="text" id="id" name="idCliente" readonly hidden>
+									<input type="text" id="idCliente" name="numeroIDCliente" readonly hidden>
+
+									<input type="text" id="productosSeleccionados" name="productos" readonly hidden>
+
+									<input type="hidden" id="numeroIDClienteOculto" name="numeroIDClienteOculto">
 								</div>
 							</div>
+
+
+							<div class="MenuProductos" id="menuProductos">
+								<span class="input-group-text">Información de los Productos:</span>
+								<div class="fieldProductos">
+									<div id="productTable">
+										<table class="table">
+											<thead>
+												<tr style="font-size: 1px;">
+													<th>PRODUCTO</th>
+													<th>CANTIDAD</th>
+													<th>VALOR UNITARIO</th>
+													<th>SUBTOTAL</th>
+													<th>ELIMINAR</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>
+														<select id="id" name="producto" required
+															class="form-select product"
+															style="border: none; cursor: pointer; font-size: 12px;"
+															onclick="actualizarValorUnitario(this)">
+															<option value="" disabled selected>Seleccione un producto
+															</option>
+															<option th:each="producto : ${productos}"
+																th:value="${producto.nombreItem}"
+																th:Item="${producto.nombreItem}"
+																th:data-precio="${producto.valorUnitario}"
+																th:text="${producto.nombreItem}"></option>
+														</select>
+													</td>
+													<td>
+														<input type="number" min="0" max="200" value="0" id="cantidad"
+															class="form-control quantity"
+															style="cursor: context-menu;  font-size: 12px; height: 30px;">
+													</td>
+													<td>
+														<label th:text="'$ '"
+															style="margin-top: 0px; width: 4%; display: inline-block;"></label>
+														<input type="text" id="valorUnitario" name="valorUnitario"
+															class="form-control unit-price"
+															style="cursor: context-menu; display: inline-block; font-size: 12px; height: 30px;"
+															readonly>
+													</td>
+													<td class="form-control subtotal" id="subTotal" style="margin-top: 2.3%; cursor: context-menu; font-size: 12px; margin-left: 10px; height: 
+														30px; text-align: center; align-items: center; padding-top: 1%;">
+														<input type="text" id="subtotal" name="subtotal"
+															class="form-control subtotal" readonly hidden>
+													</td>
+													<td>
+														<button onclick="eliminarFila(this)" class="btn btn-danger"
+															style="font-size: 10px; height: 30px; padding-top: -10px;">Eliminar
+															<svg xmlns="http://www.w3.org/2000/svg" width="12"
+																height="12" style="margin-top: -3px;"
+																fill="currentColor" class="bi bi-trash-fill"
+																viewBox="0 0 16 16">
+																<path
+																	d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0" />
+															</svg>
+														</button>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+
+										<div class="button-container">
+											<span class="current-view" style="font-size: 12px;">Vista 1</span>
+
+											<button id="addRow" onclick="agregarFila(event)"
+												class="btn btn-outline-primary" style="font-size: 12px;">Agregar
+												Producto
+												<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+													style="margin-top: -3px;" fill="currentColor"
+													class="bi bi-file-earmark-plus-fill" viewBox="0 0 16 16">
+													<path
+														d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM8.5 7v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 1 0z" />
+												</svg>
+											</button>
+
+											<button onclick="cambiarVista(-1)" id="anteriorBtn"
+												style="display: none; font-size: 13px;" class="btn btn-outline-primary">
+												<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+													fill="currentColor" class="bi bi-caret-left-fill"
+													viewBox="0 0 16 16">
+													<path
+														d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
+												</svg>
+												Anterior</button>
+											<button onclick="cambiarVista(1)" id="siguienteBtn"
+												style="display: none; font-size: 13px;"
+												class="btn btn-outline-primary">Siguiente
+												<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+													fill="currentColor" class="bi bi-caret-right-fill"
+													viewBox="0 0 16 16">
+													<path
+														d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+												</svg>
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
 						</div>
+						<div class="botones d-flex justify-content-end" id="botones">
+							<span class="input-group">
+								<span class="input-group-text">Valor Total de la
+									Cotización:</span>
 
-						<br>
+								<input type="text" id="valorTotal" name="valorTotal" class="form-control" readonly>
+							</span>
+							&nbsp;&nbsp;&nbsp;
 
-						<div class="field">
-							<input id="numeroIDCliente" type="text" name="numeroIDCliente" class="form-control"
-								autocomplete="off" th:field="*{numeroIDCliente}" required autofocus="autofocus"
-								onchange="validateNumID(this)" />
-							<label for="first-name" class="label-wrapper">
-								<span class="label-text">
-									Numero de Documento:
-								</span>
-							</label>
+							<button class="btn btn-primary mr-2" type="submit">Guardar Cotización
+								<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" style="margin-top: -3px;"
+									fill="currentColor" class="bi bi-floppy-fill" viewBox="0 0 16 16">
+									<path
+										d="M0 1.5A1.5 1.5 0 0 1 1.5 0H3v5.5A1.5 1.5 0 0 0 4.5 7h7A1.5 1.5 0 0 0 13 5.5V0h.086a1.5 1.5 0 0 1 1.06.44l1.415 1.414A1.5 1.5 0 0 1 16 2.914V14.5a1.5 1.5 0 0 1-1.5 1.5H14v-5.5A1.5 1.5 0 0 0 12.5 9h-9A1.5 1.5 0 0 0 2 10.5V16h-.5A1.5 1.5 0 0 1 0 14.5v-13Z" />
+									<path
+										d="M3 16h10v-5.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5V16Zm9-16H4v5.5a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5V0ZM9 1h2v4H9V1Z" />
+								</svg>
+							</button>&nbsp;&nbsp;&nbsp;
+
+							<button type="button" class="btn btn-outline-secondary mr-2" onclick="borrar()">Limpiar
+								<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" style="margin-top: -3px;"
+									fill="currentColor" class="bi bi-backspace-fill" viewBox="0 0 16 16">
+									<path
+										d="M15.683 3a2 2 0 0 0-2-2h-7.08a2 2 0 0 0-1.519.698L.241 7.35a1 1 0 0 0 0 1.302l4.843 5.65A2 2 0 0 0 6.603 15h7.08a2 2 0 0 0 2-2V3zM5.829 5.854a.5.5 0 1 1 .707-.708l2.147 2.147 2.146-2.147a.5.5 0 1 1 .707.708L9.39 8l2.146 2.146a.5.5 0 0 1-.707.708L8.683 8.707l-2.147 2.147a.5.5 0 0 1-.707-.708L7.976 8 5.829 5.854z" />
+								</svg>
+							</button>&nbsp;&nbsp;&nbsp;
+
+							<button class="btn btn-success mr-2" onclick="generatePDF(event)">Generar PDF
+								<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" style="margin-top: -3px;"
+									fill="currentColor" class="bi bi-file-earmark-pdf-fill" viewBox="0 0 16 16">
+									<path
+										d="M5.523 12.424q.21-.124.459-.238a8 8 0 0 1-.45.606c-.28.337-.498.516-.635.572l-.035.012a.3.3 0 0 1-.026-.044c-.056-.11-.054-.216.04-.36.106-.165.319-.354.647-.548m2.455-1.647q-.178.037-.356.078a21 21 0 0 0 .5-1.05 12 12 0 0 0 .51.858q-.326.048-.654.114m2.525.939a4 4 0 0 1-.435-.41q.344.007.612.054c.317.057.466.147.518.209a.1.1 0 0 1 .026.064.44.44 0 0 1-.06.2.3.3 0 0 1-.094.124.1.1 0 0 1-.069.015c-.09-.003-.258-.066-.498-.256M8.278 6.97c-.04.244-.108.524-.2.829a5 5 0 0 1-.089-.346c-.076-.353-.087-.63-.046-.822.038-.177.11-.248.196-.283a.5.5 0 0 1 .145-.04c.013.03.028.092.032.198q.008.183-.038.465z" />
+									<path fill-rule="evenodd"
+										d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2m5.5 1.5v2a1 1 0 0 0 1 1h2zM4.165 13.668c.09.18.23.343.438.419.207.075.412.04.58-.03.318-.13.635-.436.926-.786.333-.401.683-.927 1.021-1.51a11.7 11.7 0 0 1 1.997-.406c.3.383.61.713.91.95.28.22.603.403.934.417a.86.86 0 0 0 .51-.138c.155-.101.27-.247.354-.416.09-.181.145-.37.138-.563a.84.84 0 0 0-.2-.518c-.226-.27-.596-.4-.96-.465a5.8 5.8 0 0 0-1.335-.05 11 11 0 0 1-.98-1.686c.25-.66.437-1.284.52-1.794.036-.218.055-.426.048-.614a1.24 1.24 0 0 0-.127-.538.7.7 0 0 0-.477-.365c-.202-.043-.41 0-.601.077-.377.15-.576.47-.651.823-.073.34-.04.736.046 1.136.088.406.238.848.43 1.295a20 20 0 0 1-1.062 2.227 7.7 7.7 0 0 0-1.482.645c-.37.22-.699.48-.897.787-.21.326-.275.714-.08 1.103" />
+								</svg>
+							</button>
 						</div>
-
-						<br>
-
-						<div class="field">
-							<input id="correoElectronicoCliente" type="email" name="correoElectronicoCliente"
-								class="form-control" autocomplete="off" th:field="*{correoElectronicoCliente}" required
-								autofocus="autofocus" onchange="validarCorreoElectronicoCliente(this)" />
-							<label for="first-name" class="label-wrapper">
-								<span class="label-text">
-									Correo Electronico:
-								</span>
-							</label>
-						</div>
-
-						<br>
-
-						<div class="field">
-							<input id="numeroDeContactoCliente" type="" name="numeroDeContactoCliente"
-								class="form-control" autocomplete="off" th:field="*{numeroDeContactoCliente}" required
-								autofocus="autofocus" onchange="validateNumContacto(this)" />
-							<label for="first-name" class="label-wrapper">
-								<span class="label-text">
-									Número de Contacto:
-								</span>
-							</label>
-						</div>
-
-						<br>
-
-						<div class="field">
-							<input id="direccionCliente" type="text" name="direccionCliente" class="form-control"
-								autocomplete="off" th:field="*{direccionCliente}" required autofocus="autofocus"
-								onchange="validateDireccion(this)" />
-							<label for="first-name" class="label-wrapper">
-								<span class="label-text">
-									Dirección:
-								</span>
-							</label>
-						</div>
-
-					</div>
-					<br>
-
-					<div class="field">
-						<textarea id="adicionalCliente" type="textarea" name="adicionalCliente" class="textarea"
-							autocomplete="off" th:field="*{adicionalCliente}" autofocus="autofocus"
-							onchange="validateApellido(this)" placeholder="Información Adicional:"></textarea>
-					</div>
-
-					<br>
-
-
-					<div class="botones">
-						<button type="submit" class="guardar">Registrar
-							<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor"
-								class="bi bi-floppy-fill" viewBox="0 0 16 16">
-								<path
-									d="M0 1.5A1.5 1.5 0 0 1 1.5 0H3v5.5A1.5 1.5 0 0 0 4.5 7h7A1.5 1.5 0 0 0 13 5.5V0h.086a1.5 1.5 0 0 1 1.06.44l1.415 1.414A1.5 1.5 0 0 1 16 2.914V14.5a1.5 1.5 0 0 1-1.5 1.5H14v-5.5A1.5 1.5 0 0 0 12.5 9h-9A1.5 1.5 0 0 0 2 10.5V16h-.5A1.5 1.5 0 0 1 0 14.5v-13Z" />
-								<path
-									d="M3 16h10v-5.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5V16Zm9-16H4v5.5a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5V0ZM9 1h2v4H9V1Z" />
-							</svg>
-						</button>
-						<button type="button" class="eliminar" onclick="borrar()">Limpiar
-							<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor"
-								class="bi bi-backspace-fill" viewBox="0 0 16 16">
-								<path
-									d="M15.683 3a2 2 0 0 0-2-2h-7.08a2 2 0 0 0-1.519.698L.241 7.35a1 1 0 0 0 0 1.302l4.843 5.65A2 2 0 0 0 6.603 15h7.08a2 2 0 0 0 2-2V3zM5.829 5.854a.5.5 0 1 1 .707-.708l2.147 2.147 2.146-2.147a.5.5 0 1 1 .707.708L9.39 8l2.146 2.146a.5.5 0 0 1-.707.708L8.683 8.707l-2.147 2.147a.5.5 0 0 1-.707-.708L7.976 8 5.829 5.854z" />
-							</svg>
-						</button>
-					</div>
-				</form>
+					</form>
+				</div>
 			</div>
 		</div>
-	</main>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+	<!-- jsPDF -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.3/flatpickr.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-	<script th:src="@{/js/js-JsGenerico.js}"></script>
-	<script th:src="@{/js/js-JsRegistroDeClientes.js}"></script>
+	<script th:src="@{/js/Cotizaciones/js-JsRegistroDeCotizaciones.js}"></script>
+	<script th:src="@{/js/Cotizaciones/js-BuscarRegistros.js}"></script>
+	<script th:src="@{/js/Cotizaciones/js-calendario.js}"></script>
+	<script th:src="@{/js/Cotizaciones/js-JsGenerarPDF.js}"></script>
+
 </body>
+
 <footer>
-	© SIRPYM V1.0.1. 2023
+	© SIRPYM V1.0.1. 2024
 </footer>
 
 </html>

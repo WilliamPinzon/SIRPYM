@@ -1,0 +1,72 @@
+.suggestions {
+	padding: 1px;
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	max-height: 48%;
+	width: 48%;
+	overflow-y: auto;
+	z-index: 1000;
+	cursor: pointer;
+}
+
+.suggestion-item {
+	padding: 10px;
+	cursor: pointer;
+}
+
+.suggestion-item:hover {
+	background-color: #e9e9e9;
+}
+
+.suggestionsID {
+	margin-left: 0%;
+	margin-top: 0%;
+	padding: 10px;
+	cursor: pointer;
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	max-height: 48%;
+	width: 48%;
+	overflow-y: auto;
+	z-index: 1000;
+}
+
+.suggestionsID-itemID {
+	padding: 10px;
+	cursor: pointer;
+}
+
+.suggestionsID-itemID:hover {
+	background-color: #e9e9e9;
+}
+
+.suggestionsPRD {
+	padding: 10px;
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	max-height: 150px;
+	width: 310px;
+	overflow-y: auto;
+	z-index: 1000;
+	margin-left: 150px;
+	margin-bottom: 50px;
+	cursor: pointer;
+}
+
+.suggestionsPRD-itemPRD {
+	padding: 10px;
+	cursor: pointer;
+}
+
+.suggestionsPRD-itemPRD:hover {
+	background-color: #e9e9e9;
+}

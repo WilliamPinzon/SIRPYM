@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+	<meta charset="utf-8">
+	<link rel="shortcut icon" th:href="@{/img/LogoRefugioDelSisga.png}" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Administración de Materia Prima</title>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Nomina/style-Cotizaciones.css}">
+	
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Genericos/style-MenuPrincipal.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Genericos/style-footer.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Genericos/style-MigaPan.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Genericos/style-Nav.css}">
+
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container-fluid">
+			<a class="navbar-brand">
+				Materias Primas
+
+				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" style="margin-top: -7px;"
+					fill="currentColor" class="bi bi-file-text-fill" viewBox="0 0 16 16">
+					<path
+						d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2M5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1m-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5M5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1m0 2h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1" />
+				</svg>
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<div class="nav-item mr-2">
+						<li>
+							<a class="nav-link btn btn-outline-light" th:href="@{/Servicios}">Menú Anterior
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="margin-top: -3px;" fill="currentColor"
+									class="bi bi-box-arrow-in-left" viewBox="0 0 16 16">
+									<path fill-rule="evenodd"
+										d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0z" />
+									<path fill-rule="evenodd"
+										d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708z" />
+								</svg>
+							</a>
+						</li>
+					</div>
+				</ul>
+				<div class="ml-auto">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li>
+							<a class="nav-link btn btn-outline-light" th:href="@{/#}">Ayuda
+								<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" style="margin-top: -3px;"
+									fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+									<path
+										d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2" />
+								</svg>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<div class="container">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="migaPan navbar-dark bg-dark ms-auto">
+				<a th:href="@{/Servicios}">Servicios</a>
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+					class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
+					<path fill-rule="evenodd"
+						d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z" />
+				</svg>
+				<span class="bi bi-chevron-compact-right"></span>
+				<a th:href="@{/MenuMateriaPrima}">Materias Primas</a>
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+					class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
+					<path fill-rule="evenodd"
+						d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z" />
+				</svg>
+				<span class="bi bi-chevron-compact-right"></span>
+				<a th:href="@{/AnalisisDeVentas}">Analisis Por Ventas</a>
+			</div>
+		</nav>
+
+	</div>
+	<div class="section-container">
+		<a class="opcionUno" th:href="@{/AnalisisVentasPeriodicas}">
+			<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor"
+				class="bi bi-file-earmark-bar-graph-fill" viewBox="0 0 16 16">
+				<path
+					d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm.5 10v-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-2.5.5a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1zm-3 0a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-1z" />
+			</svg>
+			<br><br>
+			<span>
+				Informe Ventas
+				<br>
+				Periodico
+			</span>
+		</a>
+
+		<a class="opcionDos" th:href="@{/ClientesRegistrados}">
+			<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor"
+				class="bi bi-person-lines-fill" viewBox="0 0 16 16">
+				<path
+					d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-5 6s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zM11 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1h-4zm2 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2zm0 3a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2z" />
+			</svg>
+			<br><br>
+			<span>Informe Ventas
+				<br>
+				Productos
+			</span>
+		</a>
+
+
+	</div>
+</body>
+<footer>
+	© SIRPYM V1.0.1. 2024
+</footer>
+
+</html>

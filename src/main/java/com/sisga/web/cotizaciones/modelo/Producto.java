@@ -1,5 +1,5 @@
 
-package com.sisga.web.modelo;
+package com.sisga.web.cotizaciones.modelo;
 
 import java.time.LocalDateTime;
 
@@ -13,49 +13,56 @@ import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "productosCotizaciones", uniqueConstraints = @UniqueConstraint(columnNames = "id"))
+@Table(name = "COTIZACIONES_PRODUCTOS", uniqueConstraints = @UniqueConstraint(columnNames = "ID_PRODUCTO"))
 public class Producto {
+	
     @Id
+    @Column(name = "ID_PRODUCTO")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private String nombreProducto;
+    @Column(name = "NOMBRE_ITEM", nullable = false)
+	private String nombreItem;
 	
-	private String precioProducto;
+    @Column(name = "VALOR_UNITARIO", nullable = false)
+	private String valorUnitario;
 	
-	private String incProducto;
+    @Column(name = "IMPOCONSUMO", nullable = false)
+	private String impoconsumo;
 	
-	private String baseProducto;
+    @Column(name = "VALOR_BASE", nullable = false)
+	private String valorBase;
 	
-	private String descripcionProducto;
+    @Column(name = "DESCRIPCION")
+	private String descripcion;
 	
-	@Column(name = "fecha_de_registro")
+	@Column(name = "FECHA_DE_REGISTRO")
     private LocalDateTime fechaDeRegistro= LocalDateTime.now();
 	
-	@Column(name = "fecha_de_modificacion")
+	@Column(name = "FECHA_DE_MODIFICACION")
     private LocalDateTime fechaDeModificacion= LocalDateTime.now();
 
-	public Producto(Long id, String nombreProducto, String precioProducto, String incProducto, String baseProducto,
-			String descripcionProducto, LocalDateTime fechaDeRegistro, LocalDateTime fechaDeModificacion) {
+	public Producto(Long id, String nombreItem, String valorUnitario, String impoconsumo, String valorBase,
+			String descripcion, LocalDateTime fechaDeRegistro, LocalDateTime fechaDeModificacion) {
 		super();
 		this.id = id;
-		this.nombreProducto = nombreProducto;
-		this.precioProducto = precioProducto;
-		this.incProducto = incProducto;
-		this.baseProducto = baseProducto;
-		this.descripcionProducto = descripcionProducto;
+		this.nombreItem = nombreItem;
+		this.valorUnitario = valorUnitario;
+		this.impoconsumo = impoconsumo;
+		this.valorBase = valorBase;
+		this.descripcion = descripcion;
 		this.fechaDeRegistro = fechaDeRegistro;
 		this.fechaDeModificacion = fechaDeModificacion;
 	}
 
-	public Producto(String nombreProducto, String precioProducto, String incProducto, String baseProducto,
-			String descripcionProducto) {
+	public Producto(String nombreItem, String valorUnitario, String impoconsumo, String valorBase,
+			String descripcion) {
 		super();
-		this.nombreProducto = nombreProducto;
-		this.precioProducto = precioProducto;
-		this.incProducto = incProducto;
-		this.baseProducto = baseProducto;
-		this.descripcionProducto = descripcionProducto;
+		this.nombreItem = nombreItem;
+		this.valorUnitario = valorUnitario;
+		this.impoconsumo = impoconsumo;
+		this.valorBase = valorBase;
+		this.descripcion = descripcion;
 	}
 
 	public Producto() {
@@ -70,52 +77,52 @@ public class Producto {
 		this.id = id;
 	}
 
-	public String getNombreProducto() {
-		return nombreProducto;
+	public String getNombreItem() {
+		return nombreItem;
 	}
 
-	public void setNombreProducto(String nombreProducto) {
-		this.nombreProducto = nombreProducto;
+	public void setNombreItem(String nombreItem) {
+		this.nombreItem = nombreItem;
 	}
 
-	public String getPrecioProducto() {
-		return precioProducto;
+	public String getValorUnitario() {
+		return valorUnitario;
 	}
 
-	public void setPrecioProducto(String precioProducto) {
-		this.precioProducto = precioProducto;
+	public void setValorUnitario(String valorUnitario) {
+		this.valorUnitario = valorUnitario;
 	}
 
-	public String getIncProducto() {
-	    if (incProducto != null) {
-	        if (incProducto.length() < 2) {
-	            return incProducto.substring(0, Math.min(2, incProducto.length()));
-	        } else if (incProducto.length() >= 2) {
-	            return incProducto.substring(0, Math.min(4, incProducto.length()));
+	public String getImpoconsumo() {
+	    if (impoconsumo != null) {
+	        if (impoconsumo.length() < 2) {
+	            return impoconsumo.substring(0, Math.min(2, impoconsumo.length()));
+	        } else if (impoconsumo.length() >= 2) {
+	            return impoconsumo.substring(0, Math.min(4, impoconsumo.length()));
 	        }
 	    }
-	    return incProducto;
+	    return impoconsumo;
 	}
 
 
-	public void setIncProducto(String incProducto) {
-		this.incProducto = incProducto;
+	public void setImpoconsumo(String impoconsumo) {
+		this.impoconsumo = impoconsumo;
 	}
 
-	public String getBaseProducto() {
-	    return baseProducto;
+	public String getValorBase() {
+	    return valorBase;
 	}
 
-	public void setBaseProducto(String baseProducto) {
-		this.baseProducto = baseProducto;
+	public void setValorBase(String valorBase) {
+		this.valorBase = valorBase;
 	}
 
-	public String getDescripcionProducto() {
-		return descripcionProducto;
+	public String getDescripcion() {
+		return descripcion;
 	}
 
-	public void setDescripcionProducto(String descripcionProducto) {
-		this.descripcionProducto = descripcionProducto;
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 
 	public LocalDateTime getFechaDeRegistro() {

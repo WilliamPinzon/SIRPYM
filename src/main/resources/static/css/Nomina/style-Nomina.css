@@ -1,0 +1,18 @@
+li a:hover,
+li a::before {
+	transition: width 0.5s;
+	transition: 1s;
+}
+
+ul li a svg {
+	transition: width 0.5s;
+}
+
+.nav-item {
+	margin-right: 10px;
+}
+
+.nav-item li a:hover,
+.nav-link:hover {
+	color: black;
+}

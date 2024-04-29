@@ -1,0 +1,54 @@
+li a:hover,
+li a::before {
+	transition: width 0.5s;
+	transition: 1s;
+}
+
+ul li a svg {
+	transition: width 0.5s;
+}
+
+.nav-item {
+	margin-right: 10px;
+}
+
+.nav-item li a:hover,
+.nav-link:hover {
+	color: black;
+}
+
+.table th:nth-child(1),
+.table td:nth-child(1) {
+	width: 15%;
+	border-right: 1px solid #ddd;
+}
+
+/* Estilos para las columnas específicas de la tabla */
+.table th:nth-child(2),
+.table td:nth-child(2) {
+  width: 60%;
+  text-align: center;
+}
+
+.table th:nth-child(4),
+.table td:nth-child(4){
+	width: 50%;
+}
+
+.table th:nth-child(3),
+.table td:nth-child(3) {
+  width: 100%;
+}
+
+.table th:nth-child(5),
+.table td:nth-child(5),
+.table th:nth-child(6),
+.table td:nth-child(6),
+.table th:nth-child(7),
+.table td:nth-child(7),
+.table th:nth-child(8),
+.table td:nth-child(8) {
+  width: 70%;
+  text-align: center;
+}
+

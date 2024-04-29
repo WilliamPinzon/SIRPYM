@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+
+	<meta charset="utf-8">
+	<link rel="shortcut icon" th:href="@{/img/LogoRefugioDelSisga.png}" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Configuración de Productos</title>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" th:href="@{/css/MateriaPrima/style-ConfiguracionDeProductos.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Cotizaciones/style-BuscarInput.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Cotizaciones/style-Modal.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Cotizaciones/style-Nav.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/MateriaPrima/style-Table.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Cotizaciones/style-FomattInput.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Cotizaciones/style-Btn.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Cotizaciones/style-Alert.css}">
+
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Genericos/style-SectionContainer.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Genericos/style-Wrapper.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Genericos/style-MigaPan.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Genericos/style-ScrollBar.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/Genericos/style-footer.css}">
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+</head>
+
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container-fluid">
+			<a class="navbar-brand">
+				Configurar Productos
+				<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" style="margin-top: -7px;"
+					fill="currentColor" class="bi bi-tools" viewBox="0 0 16 16">
+					<path
+						d="M1 0 0 1l2.2 3.081a1 1 0 0 0 .815.419h.07a1 1 0 0 1 .708.293l2.675 2.675-2.617 2.654A3.003 3.003 0 0 0 0 13a3 3 0 1 0 5.878-.851l2.654-2.617.968.968-.305.914a1 1 0 0 0 .242 1.023l3.27 3.27a.997.997 0 0 0 1.414 0l1.586-1.586a.997.997 0 0 0 0-1.414l-3.27-3.27a1 1 0 0 0-1.023-.242L10.5 9.5l-.96-.96 2.68-2.643A3.005 3.005 0 0 0 16 3c0-.269-.035-.53-.102-.777l-2.14 2.141L12 4l-.364-1.757L13.777.102a3 3 0 0 0-3.675 3.68L7.462 6.46 4.793 3.793a1 1 0 0 1-.293-.707v-.071a1 1 0 0 0-.419-.814L1 0Zm9.646 10.646a.5.5 0 0 1 .708 0l2.914 2.915a.5.5 0 0 1-.707.707l-2.915-2.914a.5.5 0 0 1 0-.708ZM3 11l.471.242.529.026.287.445.445.287.026.529L5 13l-.242.471-.026.529-.445.287-.287.445-.529.026L3 15l-.471-.242L2 14.732l-.287-.445L1.268 14l-.026-.529L1 13l.242-.471.026-.529.445-.287.287-.445.529-.026L3 11Z" />
+				</svg>
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<div class="nav-item mr-2">
+						<li>
+							<a class="nav-link btn btn-outline-light" th:href="@{/MenuMateriaPrima}">Menú
+								Anterior
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="margin-top: -3px;"
+									fill="currentColor" class="bi bi-box-arrow-in-left" viewBox="0 0 16 16">
+									<path fill-rule="evenodd"
+										d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0z" />
+									<path fill-rule="evenodd"
+										d="M4.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H14.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708z" />
+								</svg>
+							</a>
+						</li>
+					</div>
+					<div class="nav-item mr-2">
+						<li>
+							<a class="nav-link btn btn-outline-light"
+								th:href="@{/RegistroDeProductosMateriaPrima}">Nuevo Producto
+								<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" style="margin-top: -3px;"
+									fill="currentColor" class="bi bi-file-earmark-plus-fill" viewBox="0 0 16 16">
+									<path
+										d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM8.5 7v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 1 0z" />
+								</svg>
+							</a>
+						</li>
+					</div>
+					<div class="nav-item">
+						<li>
+							<a class="nav-link btn btn-outline-light"
+								th:href="@{/ProductosRegistradosMateriaPrima}">Productos Registrados
+								<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" style="margin-top: -3px;"
+									fill="currentColor" class="bi bi-box-seam-fill" viewBox="0 0 16 16">
+									<path fill-rule="evenodd"
+										d="M15.528 2.973a.75.75 0 0 1 .472.696v8.662a.75.75 0 0 1-.472.696l-7.25 2.9a.75.75 0 0 1-.557 0l-7.25-2.9A.75.75 0 0 1 0 12.331V3.669a.75.75 0 0 1 .471-.696L7.443.184l.01-.003.268-.108a.75.75 0 0 1 .558 0l.269.108.01.003 6.97 2.789ZM10.404 2 4.25 4.461 1.846 3.5 1 3.839v.4l6.5 2.6v7.922l.5.2.5-.2V6.84l6.5-2.6v-.4l-.846-.339L8 5.961 5.596 5l6.154-2.461L10.404 2Z" />
+								</svg>
+							</a>
+						</li>
+					</div>
+				</ul>
+				<input id="buscarInput" class="search-input" onkeyup="buscarProducto()"
+					placeholder="Buscar por Nombre de Ítem...">
+				<div class="ml-auto">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li>
+							<a class="nav-link btn btn-outline-light" th:href="@{/#}">Ayuda
+								<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" style="margin-top: -3px;"
+									fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+									<path
+										d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2" />
+								</svg>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<div class="container">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="migaPan navbar-dark bg-dark ms-auto">
+				<a th:href="@{/Servicios}">Servicios</a>
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+					class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
+					<path fill-rule="evenodd"
+						d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z" />
+				</svg>
+				<span class="bi bi-chevron-compact-right"></span>
+				<a th:href="@{/MenuMateriaPrima}">Materias Primas</a>
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+					class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
+					<path fill-rule="evenodd"
+						d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z" />
+				</svg>
+				<span class="bi bi-chevron-compact-right"></span>
+				<a th:href="@{/ConfiguracionDeProductos}">Configurar Productos</a>
+			</div>
+		</nav>
+
+		<div class="section-container">
+			<div class="wrapper">
+				<div class="col-md-6 col-md-offset-3">
+					<div th:if="${param.save}" onchange="validateExito(this)">
+						<div id="exito" class="alert-exito">
+							<p>
+								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+									class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+									<path
+										d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+								</svg>
+								Producto Actualizado con Éxito!.
+								<br><br>
+								Ya puede gestionar cotizaciones con
+								<br>
+								este Producto.
+							</p>
+						</div>
+					</div>
+
+					<div th:if="${param.delete}" onchange="validateExito(this)">
+						<div id="exito" class="alert-delete">
+							<p>
+								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+									class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+									<path
+										d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+								</svg>
+								Producto Eliminado Exitosamente!.
+							</p>
+						</div>
+					</div>
+
+					<div id="modal" class="modal">
+						<div class="modal-content">
+							<span class="close" id="btn-close">&times;</span>
+							<p>¿Desea guardar los cambios editados?</p>
+							<button id="btn-aceptar">Aceptar</button>
+							<button id="btn-cancelar">Cancelar</button>
+						</div>
+					</div>
+					<div id="modal-eliminar" class="modal">
+						<div class="modal-content">
+							<span class="close" id="btn-closeF">&times;</span>
+							<p>¿Está seguro de eliminar este producto?</p>
+							<button id="btn-aceptarF" class="btn-aceptar">Aceptar</button>
+							<button id="btn-cancelarF" class="btn-cancelar">Cancelar</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="arrow-container">
+					<span class="input-group-text d-flex justify-content-between align-items-center"
+						style="height: 30px; margin-top: 10px; margin-bottom: 10px; font-size: 12px;">
+						<span>Registros actuales: &nbsp;<span th:text="${maxIndice}"></span></span>
+						<button th:if="${Productos.size() > 8}" class="arrow-button previous-button"
+							onclick="showPrevious()">
+							<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" style="margin-top: -0.5px;"
+								fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 16">
+								<path fill-rule="evenodd"
+									d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
+								<path fill-rule="evenodd"
+									d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
+							</svg>
+							Anterior
+						</button>
+						<button th:if="${Productos.size() > 8}" class="arrow-button next-button" onclick="showNext()">
+							Siguiente
+							<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" style="margin-top: -0.5px;"
+								fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+								<path fill-rule="evenodd"
+									d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708" />
+								<path fill-rule="evenodd"
+									d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708" />
+							</svg>
+						</button>
+						<span class="current-view ml-auto" style="font-size: 12px;">Vista 1</span>
+					</span>
+				</div>
+
+
+				<div id="exitoAlert" style="display: none;">Mensaje de éxito</div>
+
+				<div class="wrapper-responsive">
+					<div class="table" style="width: 100%;">
+						<table class="table">
+							<thead class="thead-dark">
+								<tr>
+									<th scope="col">Editar</th>
+									<th scope="col">Eliminar</th>
+									<th scope="col">N°</th>
+									<th scope="col">Ítem</th>
+									<th scope="col">Unidad</th>
+								</tr>
+							</thead>
+							<tbody id="mainTableBody">
+								<tr th:each="producto, iterStat : ${Productos}"
+									th:if="${iterStat.index &lt; 1000000000}">
+									<td>
+										<button class="btn btn-primary" onclick="editarFila(this)"
+											style="font-size: 12px;">
+											<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+												fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+												<path
+													d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
+											</svg>
+										</button>
+										<button class="btn btn-success" onclick="guardarFila(this)"
+											style="display: none; font-size: 12px;">
+											<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"
+												fill="currentColor" class="bi bi-floppy" viewBox="0 0 16 16">
+												<path d="M11 2H9v3h2V2Z" />
+												<path
+													d="M1.5 0h11.586a1.5 1.5 0 0 1 1.06.44l1.415 1.414A1.5 1.5 0 0 1 16 2.914V14.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 14.5v-13A1.5 1.5 0 0 1 1.5 0ZM1 1.5v13a.5.5 0 0 0 .5.5H2v-4.5A1.5 1.5 0 0 1 3.5 9h9a1.5 1.5 0 0 1 1.5 1.5V15h.5a.5.5 0 0 0 .5-.5V2.914a.5.5 0 0 0-.146-.353l-1.415-1.415A.5.5 0 0 0 13.086 1H13v4.5A1.5 1.5 0 0 1 11.5 7h-7A1.5 1.5 0 0 1 3 5.5V1H1.5a.5.5 0 0 0-.5.5Zm3 4a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5V1H4v4.5ZM3 15h10v-4.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5V15Z" />
+											</svg>
+										</button>
+									</td>
+									<td>
+										<button class="btn btn-danger" onclick="eliminarProducto(this)"
+											style="font-size: 12px;">
+											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+												fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+												<path
+													d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z" />
+												<path
+													d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z" />
+											</svg>
+										</button>
+									</td>
+									<td th:text="${iterStat.count}">Índice</td>
+									<td>
+										<input type="text" class="editable-cell nombreItem formatted-input" value=""
+											readonly th:value="${producto.nombreItem}" />
+									</td>
+									<td>
+										<input type="text" class="editable-cell unidad formatted-input" value=""
+											readonly th:value="${producto.unidad}" />
+									</td>
+
+									<input type="hidden" class="id" th:value="${producto.id}" />
+									<input type="hidden" class="nombreItem" value="${producto.nombreItem}" />
+									<input type="hidden" class="unidad" value="${producto.unidad}" />
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script th:inline="javascript"></script>
+	<script th:src="@{/js/MateriaPrima/js-JsConfiguracionDeProductos.js}"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+<footer>
+	© SIRPYM V1.0.1. 2024
+</footer>
+
+</html>

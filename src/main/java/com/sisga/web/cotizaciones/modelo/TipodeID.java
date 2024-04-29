@@ -1,8 +1,11 @@
-package com.sisga.web.modelo;
+package com.sisga.web.cotizaciones.modelo;
 
 public enum TipodeID {
-	CEDULA("Cedula Persona Natural"),
-    NIT("NIT Persona Juridica");
+	CEDULAC("Cédula de ciudadanía"),
+	CEDULAE("Cédula de extranjería"),
+	PASAPORTE("Pasaporte"),
+	NIT("NIT persona jurídica");
+   
 
     private String nombre;
 

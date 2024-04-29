@@ -4,7 +4,7 @@ var tableRows = document.getElementById("mainTableBody").getElementsByTagName("t
 var numRows = tableRows.length;
 
 function showNext() {
-	var nextIndex = currentIndex + 10;
+	var nextIndex = currentIndex + 9;
 	if (nextIndex >= numRows) {
 		nextIndex = numRows;
 		document.getElementsByClassName("arrow-button")[1].style.display = "none";
@@ -14,7 +14,7 @@ function showNext() {
 }
 
 function showPrevious() {
-	var previousIndex = currentIndex - 10;
+	var previousIndex = currentIndex - 9;
 	if (previousIndex < 0) {
 		previousIndex = 0;
 		document.getElementsByClassName("arrow-button")[0].style.display = "none";
@@ -24,15 +24,20 @@ function showPrevious() {
 }
 
 function showRows() {
+	const numRowsPerPage = 9; // Número de filas por página
+    const totalViews = Math.ceil(numRows / numRowsPerPage); // Calcular el total de vistas
 	for (var i = 0; i < numRows; i++) {
-		if (i >= currentIndex && i < currentIndex + 10) {
+		if (i >= currentIndex && i < currentIndex + 9) {
 			tableRows[i].style.display = "";
 		} else {
 			tableRows[i].style.display = "none";
 		}
 	}
 	document.getElementsByClassName("arrow-button")[0].style.display = (currentIndex > 0) ? "" : "none";
-	document.getElementsByClassName("arrow-button")[1].style.display = (currentIndex + 10 < numRows) ? "" : "none";
+	document.getElementsByClassName("arrow-button")[1].style.display = (currentIndex + 9 < numRows) ? "" : "none";
+	   // Actualizar texto que muestra la vista actual y el total de vistas
+    const currentView = Math.floor(currentIndex / numRowsPerPage) + 1; // Calcular la vista actual
+    document.querySelector(".current-view").innerText = `Vista ${currentView} de ${totalViews}`; // Actualizar el texto
 }
 
 function buscarCliente() {
@@ -42,10 +47,8 @@ function buscarCliente() {
     var filas = tabla.getElementsByTagName("tr");
 
     if (filter === "") {
-        // Si el filtro está vacío, mostrar todas las filas
         showRows();
     } else {
-        // Si hay un filtro, ocultar las filas que no coinciden
         for (var i = 0; i < filas.length; i++) {
             var celda = filas[i].getElementsByTagName("td")[3];
             if (celda) {
@@ -59,6 +62,5 @@ function buscarCliente() {
         }
     }
 }
-
 
 showRows();
