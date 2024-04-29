@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy JAR app to Azure Web App - sirpym
+name: Build and deploy WAR app to Azure Web App - sirpym
 
 on:
   push:
@@ -28,7 +28,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: java-app
-          path: '${{ github.workspace }}/target/*.jar'
+          path: '${{ github.workspace }}/target/*.war'
 
   deploy:
     runs-on: windows-latest
@@ -48,9 +48,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_7D34CD90142647E3AD9AA5DAA53DFD3A }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_6D0A9EAA9AB24DA1AB0C752CF44113EF }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_BA81345462D4422AA036A61DA27FB549 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_CB5E8EA68B594BBF9EBF0374684F0750 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_CF59148B3F0E4CB3AD16B8A5C2726C82 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_7D9C56941178426A98E7F12622CC3A92 }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
@@ -58,5 +58,5 @@ jobs:
         with:
           app-name: 'sirpym'
           slot-name: 'Production'
-          package: '*.jar'
+          package: '*.war'
           
