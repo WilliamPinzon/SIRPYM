@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 public class CotizacionesRegistroDTO {
 
 	private Long id;
+	
+	private Long numeroDeCotizacion;
 
 	private String numeroDeDocumentoCliente;
 
@@ -26,9 +28,10 @@ public class CotizacionesRegistroDTO {
 		super();
 	}
 
-	public CotizacionesRegistroDTO(Long id, String numeroDeDocumentoCliente, String nombreCompletoCliente, String productos, String valorTotal, String fechaEvento, String cantidadComensales, LocalDateTime fechaDeRegistro, LocalDateTime fechaDeModificacion) {
+	public CotizacionesRegistroDTO(Long id, Long numeroDeCotizacion, String numeroDeDocumentoCliente, String nombreCompletoCliente, String productos, String valorTotal, String fechaEvento, String cantidadComensales, LocalDateTime fechaDeRegistro, LocalDateTime fechaDeModificacion) {
 		super();
 		this.id = id;
+		this.numeroDeCotizacion = numeroDeCotizacion;
 		this.numeroDeDocumentoCliente = numeroDeDocumentoCliente;
 		this.nombreCompletoCliente = nombreCompletoCliente;
 		this.productos = productos;
@@ -45,6 +48,14 @@ public class CotizacionesRegistroDTO {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Long getNumeroDeCotizacion() {
+		return numeroDeCotizacion;
+	}
+
+	public void setNumeroDeCotizacion(Long numeroDeCotizacion) {
+		this.numeroDeCotizacion = numeroDeCotizacion;
 	}
 
 	public String getNumeroDeDocumentoCliente() {

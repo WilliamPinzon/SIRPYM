@@ -96,30 +96,21 @@
 	</nav>
 
 	<div class="container">
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<div class="migaPan navbar-dark bg-dark ms-auto">
-				<a th:href="@{/Servicios}">Servicios</a>
-				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-					class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
-					<path fill-rule="evenodd"
-						d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z" />
-				</svg>
-				<span class="bi bi-chevron-compact-right"></span>
-				<a th:href="@{/Nomina}">Nomina</a>
-				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-					class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
-					<path fill-rule="evenodd"
-						d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z" />
-				</svg>
-				<span class="bi bi-chevron-compact-right"></span>
-				<a th:href="@{/ServiciosNomina}">Servicios Nomina</a>
-				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-					class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
-					<path fill-rule="evenodd"
-						d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z" />
-				</svg>
-				<span class="bi bi-chevron-compact-right"></span>
-				<a th:href="@{/NominaDiaria}">Nomina Diaria</a>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 10%; align-items: center;">
+			<div class="migaPan navbar navbar-dark bg-primary row" style="height: 10%; align-items: center;">
+				<nav style="height: 1.8em;--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);"
+					aria-label="breadcrumb">
+					<ol class="breadcrumb" style="height: -10%; margin-top: 0%;">
+						<li class="breadcrumb-item"><a th:href="@{/Servicios}" class="btn btn-secondary"
+								style="font-size: 10px; padding: 2;">Servicios</a></li>
+						<li class="breadcrumb-item"><a th:href="@{/Nomina}" class="btn btn-secondary"
+								style="font-size: 10px; padding: 2;">Nomina</a></li>
+						<li class="breadcrumb-item"><a th:href="@{/ServiciosNomina}" class="btn btn-secondary"
+								style="font-size: 10px; padding: 2;">Servicios Nomina</a></li>
+						<li class="breadcrumb-item"><a th:href="@{/NominaDiaria}" class="btn btn-secondary"
+								style="font-size: 10px; padding: 2;">Nomina Diaria</a></li>
+					</ol>
+				</nav>
 			</div>
 		</nav>
 

@@ -35,7 +35,7 @@ function showRows() {
 	}
 	document.getElementsByClassName("arrow-button")[0].style.display = (currentIndex > 0) ? "" : "none";
 	document.getElementsByClassName("arrow-button")[1].style.display = (currentIndex + 9 < numRows) ? "" : "none";
-	   // Actualizar texto que muestra la vista actual y el total de vistas
+	// Actualizar texto que muestra la vista actual y el total de vistas
     const currentView = Math.floor(currentIndex / numRowsPerPage) + 1; // Calcular la vista actual
     document.querySelector(".current-view").innerText = `Vista ${currentView} de ${totalViews}`; // Actualizar el texto
 }

@@ -27,21 +27,26 @@ function validateDelete(input) {
 }
 
 function buscarColaborador() {
-	const textoBusqueda = document.getElementById('buscarInput').value;
+    var input = document.getElementById("buscarInput");
+    var filter = input.value.toUpperCase();
+    var tabla = document.getElementsByTagName("table")[0];
+    var filas = tabla.getElementsByTagName("tr");
 
-	const filas = document.querySelectorAll('#mainTableBody tr');
-	filas.forEach((fila) => {
-		const nombreCompletoInput = fila.querySelector('.editable-cell.nombreCompleto');
-		const nombreCompleto = nombreCompletoInput.value;
-
-		if (textoBusqueda === "") {
-			showRows();
-		} else if (nombreCompleto.toLowerCase().includes(textoBusqueda.toLowerCase())) {
-			fila.style.display = '';
-		} else {
-			fila.style.display = 'none';
-		}
-	});
+    if (filter === "") {
+        showRows();
+    } else {
+        for (var i = 0; i < filas.length; i++) {
+            var celda = filas[i].getElementsByTagName("td")[4];
+            if (celda) {
+                var textoCelda = celda.textContent || celda.innerText;
+                if (textoCelda.toUpperCase().indexOf(filter) > -1) {
+                    filas[i].style.display = "";
+                } else {
+                    filas[i].style.display = "none";
+                }
+            }
+        }
+    }
 }
 
 function mostrarModalEliminar() {

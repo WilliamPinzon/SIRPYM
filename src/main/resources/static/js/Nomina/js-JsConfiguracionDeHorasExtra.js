@@ -262,22 +262,26 @@ function buscarColaboradorYFecha() {
     
     var tabla = document.getElementsByTagName("table")[0];
     var filas = tabla.getElementsByTagName("tr");
-
-    for (var i = 0; i < filas.length; i++) {
-        var celdaColaborador = filas[i].getElementsByTagName("td")[4];
-        var celdaFecha = filas[i].getElementsByTagName("td")[3];
-
-        if (celdaColaborador && celdaFecha) {
-            var textoColaborador = celdaColaborador.textContent || celdaColaborador.innerText;
-            var textoFecha = celdaFecha.textContent || celdaFecha.innerText;
-
-            if ((filterColaborador === "" || textoColaborador.toUpperCase().indexOf(filterColaborador) > -1) &&
-                (filterFecha === "" || textoFecha.toUpperCase().indexOf(filterFecha) > -1)) {
-                filas[i].style.display = "";
-            } else {
-                filas[i].style.display = "none";
-            }
-        }
+    
+    if (filterColaborador === "" && filterFecha === "") {
+        showRows();
+    } else {
+	    for (var i = 0; i < filas.length; i++) {
+	        var celdaColaborador = filas[i].getElementsByTagName("td")[4];
+	        var celdaFecha = filas[i].getElementsByTagName("td")[3];
+	
+	        if (celdaColaborador && celdaFecha) {
+	            var textoColaborador = celdaColaborador.textContent || celdaColaborador.innerText;
+	            var textoFecha = celdaFecha.textContent || celdaFecha.innerText;
+	
+	            if ((filterColaborador === "" || textoColaborador.toUpperCase().indexOf(filterColaborador) > -1) &&
+	                (filterFecha === "" || textoFecha.toUpperCase().indexOf(filterFecha) > -1)) {
+	                filas[i].style.display = "";
+	            } else {
+	                filas[i].style.display = "none";
+	            }
+	        }
+	    }
     }
 }
 
@@ -285,17 +289,21 @@ function buscarColaborador() {
     var filter = document.getElementById("buscarColaboradorInput").value.toUpperCase();
     var tabla = document.getElementsByTagName("table")[0];
     var filas = tabla.getElementsByTagName("tr");
-
-    for (var i = 0; i < filas.length; i++) {
-        var celda = filas[i].getElementsByTagName("td")[4];
-        if (celda) {
-            var textoCelda = celda.textContent || celda.innerText;
-            if (textoCelda.toUpperCase().indexOf(filter) > -1) {
-                filas[i].style.display = "";
-            } else {
-                filas[i].style.display = "none";
-            }
-        }
+    
+    if (filter === "") {
+        showRows();
+    } else {
+	    for (var i = 0; i < filas.length; i++) {
+	        var celda = filas[i].getElementsByTagName("td")[4];
+	        if (celda) {
+	            var textoCelda = celda.textContent || celda.innerText;
+	            if (textoCelda.toUpperCase().indexOf(filter) > -1) {
+	                filas[i].style.display = "";
+	            } else {
+	                filas[i].style.display = "none";
+	            }
+	        }
+	    }
     }
 }
 
@@ -304,16 +312,20 @@ function buscarPorFecha() {
     var tabla = document.getElementsByTagName("table")[0];
     var filas = tabla.getElementsByTagName("tr");
 
-    for (var i = 0; i < filas.length; i++) {
-        var celda = filas[i].getElementsByTagName("td")[3];
-        if (celda) {
-            var textoCelda = celda.textContent || celda.innerText;
-            if (textoCelda.toUpperCase().indexOf(filter) > -1) {
-                filas[i].style.display = "";
-            } else {
-                filas[i].style.display = "none";
-            }
-        }
+    if (filter === "") {
+        showRows();
+    } else {
+	    for (var i = 0; i < filas.length; i++) {
+	        var celda = filas[i].getElementsByTagName("td")[3];
+	        if (celda) {
+	            var textoCelda = celda.textContent || celda.innerText;
+	            if (textoCelda.toUpperCase().indexOf(filter) > -1) {
+	                filas[i].style.display = "";
+	            } else {
+	                filas[i].style.display = "none";
+	            }
+	        }
+	    }
     }
 }
 

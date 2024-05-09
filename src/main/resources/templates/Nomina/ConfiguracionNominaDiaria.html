@@ -18,7 +18,7 @@
 	<link rel="stylesheet" type="text/css" th:href="@{/css/Nomina/style-ConfiguracionDeColaboradores.css}">
 	<link rel="stylesheet" type="text/css" th:href="@{/css/Nomina/style-TableNominaDiaria.css}">
 	<link rel="stylesheet" type="text/css" th:href="@{/css/Nomina/style-SectionContainer.css}">
-	
+
 	<link rel="stylesheet" type="text/css" th:href="@{/css/Cotizaciones/style-BuscarInput.css}">
 	<link rel="stylesheet" type="text/css" th:href="@{/css/Cotizaciones/style-Modal.css}">
 	<link rel="stylesheet" type="text/css" th:href="@{/css/Cotizaciones/style-Nav.css}">
@@ -56,8 +56,8 @@
 						<li>
 							<a class="nav-link btn btn-outline-light" th:href="@{/ServiciosNomina}">Menú
 								Anterior
-								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="margin-top: -3px;" fill="currentColor"
-									class="bi bi-box-arrow-in-left" viewBox="0 0 16 16">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="margin-top: -3px;"
+									fill="currentColor" class="bi bi-box-arrow-in-left" viewBox="0 0 16 16">
 									<path fill-rule="evenodd"
 										d="M10 3.5a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 1 1 0v2A1.5 1.5 0 0 1 9.5 14h-8A1.5 1.5 0 0 1 0 12.5v-9A1.5 1.5 0 0 1 1.5 2h8A1.5 1.5 0 0 1 11 3.5v2a.5.5 0 0 1-1 0z" />
 									<path fill-rule="evenodd"
@@ -68,7 +68,7 @@
 					</div>
 					<div class="nav-item mr-2">
 						<li>
-							<a class="nav-link btn btn-outline-light" th:href="@{/NominaHorasExtra}">Nueva Nomina
+							<a class="nav-link btn btn-outline-light" th:href="@{/NominaDiaria}">Nueva Nomina
 								<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" style="margin-top: -3px;"
 									fill="currentColor" class="bi bi-file-earmark-plus-fill" viewBox="0 0 16 16">
 									<path
@@ -79,7 +79,8 @@
 					</div>
 					<div class="nav-item">
 						<li>
-							<a class="nav-link btn btn-outline-light" th:href="@{/NominaDiariaRegistradas}">Nominas Diarias Registradas
+							<a class="nav-link btn btn-outline-light" th:href="@{/NominaDiariaRegistradas}">Nominas
+								Diarias Registradas
 								<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" style="margin-top: -3px;"
 									fill="currentColor" class="bi bi-box-seam-fill" viewBox="0 0 16 16">
 									<path fill-rule="evenodd"
@@ -89,14 +90,14 @@
 						</li>
 					</div>
 				</ul>
-				<input id="buscarInput" onkeyup="buscarColaborador()" class="search-input"
-					placeholder="Buscar por Nombre...">
+
 				<div class="ml-auto">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<li>
 							<a class="nav-link btn btn-outline-light" th:href="@{/#}">Ayuda
-								<svg xmlns="	http://www.w3.org/2000/svg" width="15" height="15" style="margin-top: -3px;"
-									fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+								<svg xmlns="	http://www.w3.org/2000/svg" width="15" height="15"
+									style="margin-top: -3px;" fill="currentColor" class="bi bi-info-circle-fill"
+									viewBox="0 0 16 16">
 									<path
 										d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2" />
 								</svg>
@@ -108,25 +109,21 @@
 		</div>
 	</nav>
 	<div class="container">
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
-			<div class="migaPan navbar-dark bg-dark ms-auto">
-				<a th:href="@{/Servicios}">Servicios</a>
-				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-					class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
-					<path fill-rule="evenodd"
-						d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z" />
-				</svg>
-				<span class="bi bi-chevron-compact-right"></span>
-				<a th:href="@{/Nomina}">Nomina</a>
-				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-					class="bi bi-chevron-compact-right" viewBox="0 0 16 16">
-					<path fill-rule="evenodd"
-						d="M6.776 1.553a.5.5 0 0 1 .671.223l3 6a.5.5 0 0 1 0 .448l-3 6a.5.5 0 1 1-.894-.448L9.44 8 6.553 2.224a.5.5 0 0 1 .223-.671z" />
-				</svg>
-				<span class="bi bi-chevron-compact-right"></span>
-				<a th:href="@{/ConfiguracionNominaDiaria}">Configuración de Nomina Diaria</a>
-
-
+				<nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 10%; align-items: center;">
+			<div class="migaPan navbar navbar-dark bg-primary row" style="height: 10%; align-items: center;">
+				<nav style="height: 1.8em;--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);"
+					aria-label="breadcrumb">
+					<ol class="breadcrumb" style="height: -10%; margin-top: 0%;">
+						<li class="breadcrumb-item"><a th:href="@{/Servicios}" class="btn btn-secondary"
+								style="font-size: 10px; padding: 2;">Servicios</a></li>
+						<li class="breadcrumb-item"><a th:href="@{/Nomina}" class="btn btn-secondary"
+								style="font-size: 10px; padding: 2;">Nomina</a></li>
+						<li class="breadcrumb-item"><a th:href="@{/ServiciosNomina}" class="btn btn-secondary"
+								style="font-size: 10px; padding: 2;">Servicios Nomina</a></li>
+						<li class="breadcrumb-item"><a th:href="@{/ConfiguracionNominaDiaria}" class="btn btn-secondary"
+								style="font-size: 10px; padding: 2;">Configuración de Nomina Diaria</a></li>
+					</ol>
+				</nav>
 			</div>
 		</nav>
 
@@ -193,33 +190,41 @@
 				</div>
 
 				<div class="arrow-container">
-					<span class="input-group-text d-flex justify-content-between align-items-center"
-						style="height: 30px; margin-top: 10px; margin-bottom: 10px; font-size: 12px;">
-						<span>Registros actuales: &nbsp;<span th:text="${maxIndice}"></span></span>
-						<button th:if="${nominaDiaria.size() > 8}" class="arrow-button previous-button"
-							onclick="showPrevious()">
-							<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" style="margin-top: -0.5px;"
-								fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 16">
-								<path fill-rule="evenodd"
-									d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
-								<path fill-rule="evenodd"
-									d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
-							</svg>
-							Anterior
-						</button>
-						<button th:if="${nominaDiaria.size() > 8}" class="arrow-button next-button"
-							onclick="showNext()">
-							Siguiente
-							<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" style="margin-top: -0.5px;"
-								fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
-								<path fill-rule="evenodd"
-									d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708" />
-								<path fill-rule="evenodd"
-									d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708" />
-							</svg>
-						</button>
-						<span class="current-view ml-auto" style="font-size: 12px;">Vista 1</span>
-					</span>
+					<div class="input-group" style="padding-top: 1%; padding-bottom: 1%;">
+						<span class="input-group-text"
+							style="font-size: 12px; height: 30px; width: 60%; margin-right: 2%;">
+							<span>Registros actuales: <span th:text="${maxIndice}"></span></span>
+
+							<button th:if="${nominaDiaria.size() > 8}" class="arrow-button previous-button"
+								onclick="showPrevious()">
+								<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+									style="margin-top: -0.5px;" fill="currentColor" class="bi bi-chevron-double-left"
+									viewBox="0 0 16 16">
+									<path fill-rule="evenodd"
+										d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
+									<path fill-rule="evenodd"
+										d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0" />
+								</svg>
+								Anterior
+							</button>
+							<button th:if="${nominaDiaria.size() > 8}" class="arrow-button next-button"
+								onclick="showNext()">
+								Siguiente
+								<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"
+									style="margin-top: -0.5px;" fill="currentColor" class="bi bi-chevron-double-right"
+									viewBox="0 0 16 16">
+									<path fill-rule="evenodd"
+										d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708" />
+									<path fill-rule="evenodd"
+										d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708" />
+								</svg>
+							</button>
+							<span class="current-view ms-auto" style="font-size: 12px;">Vista 1</span>
+						</span>
+
+						<input id="buscarInput" onkeyup="buscarColaborador()" class="search-input ms-auto"
+							placeholder="Buscar por Nombre de Colaborador..." style="background-color: rgb(212, 212, 212); height: 30px; max-width: 30%;">
+					</div>
 				</div>
 
 				<div id="exitoAlert" style="display: none;">Mensaje de éxito</div>
@@ -277,26 +282,26 @@
 									<td th:text="${iterStat.count}">Índice</td>
 
 									<td>
-										<input type="text" class="editable-cell fechaDeRegistroNomina formatted-input" readonly
-        th:value="${nominaDiaria.fechaDeRegistroNomina}" />
+										<input type="text" class="editable-cell fechaDeRegistroNomina formatted-input"
+											readonly th:value="${nominaDiaria.fechaDeRegistroNomina}" />
 									</td>
-									
-									<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        var fechaInput = document.querySelector('.fechaDeRegistroNomina');
-        var fechaValue = fechaInput.value;
-        var fechaFormateada = formatFecha(fechaValue);
-        fechaInput.value = fechaFormateada;
-    });
 
-    function formatFecha(fecha) {
-        var partesFecha = fecha.split('-');
-        var dia = partesFecha[2];
-        var mes = partesFecha[1];
-        var año = partesFecha[0];
-        return año + '/' + mes + '/' + dia; // Cambiar el orden según el formato deseado
-    }
-</script>
+									<script>
+										document.addEventListener("DOMContentLoaded", function () {
+											var fechaInput = document.querySelector('.fechaDeRegistroNomina');
+											var fechaValue = fechaInput.value;
+											var fechaFormateada = formatFecha(fechaValue);
+											fechaInput.value = fechaFormateada;
+										});
+
+										function formatFecha(fecha) {
+											var partesFecha = fecha.split('-');
+											var dia = partesFecha[2];
+											var mes = partesFecha[1];
+											var año = partesFecha[0];
+											return año + '/' + mes + '/' + dia; // Cambiar el orden según el formato deseado
+										}
+									</script>
 
 									<td th:text="${nominaDiaria.nombreCompleto}"></td>
 
@@ -314,8 +319,8 @@
 									</td>
 
 									<input type="hidden" class="id" th:value="${nominaDiaria.id}" />
-										<input type="date" style="display: none;" class="fechaDeRegistroNomina"
-											value="${nominaDiaria.fechaDeRegistroNomina}" />
+									<input type="date" style="display: none;" class="fechaDeRegistroNomina"
+										value="${nominaDiaria.fechaDeRegistroNomina}" />
 									<input type="number" min="0.5" max="1" style="display: none;" class="diaLaborado"
 										value="${nominaDiaria.diaLaborado}" />
 									<input type="number" style="display: none;" class="valorACancelar"

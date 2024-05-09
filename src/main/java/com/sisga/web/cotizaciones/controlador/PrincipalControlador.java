@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class PrincipalControlador {
 
-//	@GetMapping("/")
-//	public String inicioCotizaciones() {
-//		return "/Cotizaciones/Servicios";
-//	}
+	@GetMapping("/")
+	public String inicioCotizaciones() {
+	    return "/index";
+	}
 
 }

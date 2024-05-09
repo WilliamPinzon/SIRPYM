@@ -28,6 +28,7 @@ public class CotizacionesServicioImplementacion implements CotizacionesServicio 
 	@Override
 	public Cotizacion guardar(CotizacionesRegistroDTO cotizacionesRegistroDTO) {
 		Cotizacion cotizacion = new Cotizacion(
+				cotizacionesRegistroDTO.getNumeroDeCotizacion(),
 				cotizacionesRegistroDTO.getNumeroDeDocumentoCliente(),
 				cotizacionesRegistroDTO.getNombreCompletoCliente(),
 				cotizacionesRegistroDTO.getProductos(),

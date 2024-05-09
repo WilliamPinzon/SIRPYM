@@ -26,17 +26,17 @@ function validateDelete(input) {
 	}, 10000);
 }
 
-function buscarCliente() {
+function buscarContrato() {
 	const textoBusqueda = document.getElementById('buscarInput').value;
 
 	const filas = document.querySelectorAll('#mainTableBody tr');
 	filas.forEach((fila) => {
-		const numeroDeDocumentoInput = fila.querySelector('.editable-cell.numeroDeDocumento');
-		const numeroDeDocumento = numeroDeDocumentoInput.value;
+		const nombreItemInput = fila.querySelector('.editable-cell.tipoDeContrato');
+		const nombreItem = nombreItemInput.value;
 
 		if (textoBusqueda === "") {
 			showRows();
-		} else if (numeroDeDocumento.toLowerCase().includes(textoBusqueda.toLowerCase())) {
+		} else if (nombreItem.toLowerCase().includes(textoBusqueda.toLowerCase())) {
 			fila.style.display = '';
 		} else {
 			fila.style.display = 'none';

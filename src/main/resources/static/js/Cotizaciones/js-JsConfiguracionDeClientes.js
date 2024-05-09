@@ -31,7 +31,7 @@ function buscarCliente() {
 
 	const filas = document.querySelectorAll('#mainTableBody tr');
 	filas.forEach((fila) => {
-		const numeroDeDocumentoInput = fila.querySelector('.editable-cell.numeroDeDocumento');
+		const numeroDeDocumentoInput = fila.querySelector('.editable-cell.nombreCompleto');
 		const numeroDeDocumento = numeroDeDocumentoInput.value;
 
 		if (textoBusqueda === "") {

@@ -20,7 +20,7 @@ public class ProductoCotizacionesControlador {
 	
 	@GetMapping("Servicios")
 	public String MenuPrincipalServicios() {
-		return "/Cotizaciones/Servicios";
+		return "/index";
 	}
 	
 	@GetMapping("ProductosRegistrados")

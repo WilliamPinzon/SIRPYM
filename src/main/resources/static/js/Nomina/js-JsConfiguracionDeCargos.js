@@ -281,4 +281,22 @@ function showRows() {
     document.querySelector(".current-view").innerText = `Vista ${currentView} de ${totalViews}`; // Actualizar el texto
 }
 
+function buscarCargo() {
+	const textoBusqueda = document.getElementById('buscarInput').value;
+
+	const filas = document.querySelectorAll('#mainTableBody tr');
+	filas.forEach((fila) => {
+		const nombreItemInput = fila.querySelector('.editable-cell.tipoDeCargo');
+		const nombreItem = nombreItemInput.value;
+
+		if (textoBusqueda === "") {
+			showRows();
+		} else if (nombreItem.toLowerCase().includes(textoBusqueda.toLowerCase())) {
+			fila.style.display = '';
+		} else {
+			fila.style.display = 'none';
+		}
+	});
+}
+
 showRows();

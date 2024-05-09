@@ -27,22 +27,29 @@ function validateDelete(input) {
 }
 
 function buscarCliente() {
-	const textoBusqueda = document.getElementById('buscarInput').value;
+    var input = document.getElementById("buscarInput");
+    var filter = input.value.toUpperCase();
+    var tabla = document.getElementById("tableContenido");
+    var filas = tabla.getElementsByTagName("tr");
 
-	const filas = document.querySelectorAll('#mainTableBody tr');
-	filas.forEach((fila) => {
-		const numeroDeDocumentoInput = fila.querySelector('.editable-cell.numeroDeDocumento');
-		const numeroDeDocumento = numeroDeDocumentoInput.value;
-
-		if (textoBusqueda === "") {
-			showRows();
-		} else if (numeroDeDocumento.toLowerCase().includes(textoBusqueda.toLowerCase())) {
-			fila.style.display = '';
-		} else {
-			fila.style.display = 'none';
-		}
-	});
+    if (filter === "") {
+        showRows();
+    } else {
+        for (var i = 0; i < filas.length; i++) {
+            var celda = filas[i].getElementsByTagName("td")[3];
+            if (celda) {
+                var textoCelda = celda.textContent || celda.innerText;
+                if (textoCelda.toUpperCase().indexOf(filter) > -1) {
+                    filas[i].style.display = "";
+                } else {
+                    filas[i].style.display = "none";
+                }
+            }
+        }
+    }
 }
+
+
 
 function mostrarModalEliminar() {
 	var modal = document.getElementById("modal-eliminar");

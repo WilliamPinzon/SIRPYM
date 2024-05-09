@@ -21,6 +21,9 @@ public class Cotizacion {
 	@Column(name = "ID_COTIZACION")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@Column(name = "NUMERO_DE_COTIZACION", nullable = false)
+	private Long numeroDeCotizacion;
 
 	@Column(name = "NUMERO_DE_DOCUMENTO_DEL_CLIENTE", nullable = false)
 	private String numeroDeDocumentoCliente;
@@ -51,10 +54,11 @@ public class Cotizacion {
 		super();
 	}
 
-	public Cotizacion(Long id, String numeroDeDocumentoCliente, String nombreCompletoCliente,
+	public Cotizacion(Long id, Long numeroDeCotizacion, String numeroDeDocumentoCliente, String nombreCompletoCliente,
 			String productos, String valorTotal, String fechaEvento, String cantidadComensales, LocalDateTime fechaDeRegistro, LocalDateTime fechaDeModificacion) {
 		super();
 		this.id = id;
+		this.numeroDeCotizacion = numeroDeCotizacion;
 		this.numeroDeDocumentoCliente = numeroDeDocumentoCliente;
 		this.nombreCompletoCliente = nombreCompletoCliente;
 		this.productos = productos;
@@ -65,9 +69,10 @@ public class Cotizacion {
 		this.fechaDeModificacion = fechaDeModificacion;
 	}
 
-	public Cotizacion(String numeroDeDocumentoCliente, String nombreCompletoCliente,
+	public Cotizacion(Long numeroDeCotizacion, String numeroDeDocumentoCliente, String nombreCompletoCliente,
 			String productos, String valorTotal, String fechaEvento, String cantidadComensales) {
 		super();
+		this.numeroDeCotizacion = numeroDeCotizacion;
 		this.numeroDeDocumentoCliente = numeroDeDocumentoCliente;
 		this.nombreCompletoCliente = nombreCompletoCliente;
 		this.productos = productos;
@@ -82,6 +87,14 @@ public class Cotizacion {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Long getNumeroDeCotizacion() {
+		return numeroDeCotizacion;
+	}
+
+	public void setNumeroDeCotizacion(Long numeroDeCotizacion) {
+		this.numeroDeCotizacion = numeroDeCotizacion;
 	}
 
 	public String getNumeroDeDocumentoCliente() {

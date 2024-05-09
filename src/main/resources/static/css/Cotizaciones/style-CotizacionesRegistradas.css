@@ -1,5 +1,6 @@
 .table th:nth-child(1),
 .table td:nth-child(1) {
+	align-items: center;
 	width: 2%;
 }
 
@@ -11,35 +12,35 @@
 
 .table th:nth-child(3),
 .table td:nth-child(3) {
-	width: 10%;
+	width: 7%;
 }
 
 .table th:nth-child(4),
 .table td:nth-child(4) {
-	width: 15%;
+	width: 7%;
 }
 
 .table th:nth-child(5),
 .table td:nth-child(5) {
-	width: 5%;
+	width: 3%;
 }
 
 .table th:nth-child(6),
 .table td:nth-child(6) {
-	width: 5%;
+	width: 3%;
 }
 
 .table th:nth-child(7),
 .table td:nth-child(7) {
-	width: 5%;
+	width: 4%;
 }
 
 .table th:nth-child(8),
 .table td:nth-child(8) {
-	width: 10%;
+	width: 3%;
 }
 
 .table th:nth-child(9),
 .table td:nth-child(9) {
-	width: 8%;
+	width: 7%;
 }
